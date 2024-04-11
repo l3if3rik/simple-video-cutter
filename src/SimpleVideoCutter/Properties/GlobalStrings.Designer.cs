@@ -79,6 +79,15 @@ namespace SimpleVideoCutter.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New version ready for install. Please restart the application to apply upgrade. .
+        /// </summary>
+        internal static string AboutBox_NewVersionDownloaded {
+            get {
+                return ResourceManager.GetString("AboutBox_NewVersionDownloaded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Version.
         /// </summary>
         internal static string AboutBox_Version {

@@ -8,6 +8,7 @@ using System.Runtime.Versioning;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Velopack;
 
 namespace SimpleVideoCutter
 {
@@ -35,6 +36,8 @@ namespace SimpleVideoCutter
         [STAThread]
         static void Main(string[] args)
         {
+            VelopackApp.Build().Run();
+
             string fileToLoadOnStartup = null;
             string svcFolder = "SimpleVideoCutter";
             string configFolder = Path.Combine(

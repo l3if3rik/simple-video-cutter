@@ -159,14 +159,21 @@ namespace SimpleVideoCutter
 
             VideoCutterSettings.Instance.RestoreToolbarsLayout = true;
 
-            var latestRelease = await GitHubVersionCheck.GetLatestReleaseVersionFromGitHub();
-            if (latestRelease != null && latestRelease != Utils.GetCurrentRelease())
+            Updater.Instance.PropertyChanged += (object? sender, PropertyChangedEventArgs e) =>
             {
-                this.toolStripButtonInternetVersionCheck.ForeColor = Color.Red;
-            }
+                if (Updater.Instance.NewVersionAvailable || Updater.Instance.NewVersionDownloaded)
+                {
+                    toolStripInternet.InvokeIfRequired(() =>
+                    {
+                        toolStripButtonInternetVersionCheck.ForeColor = Color.Red;
+                    });
+                }
+            };
 
+            Updater.Instance.StartCheckingVersion();
             ResizePreview();
         }
+
 
 
         private void MainForm_Shown(object sender, EventArgs e)

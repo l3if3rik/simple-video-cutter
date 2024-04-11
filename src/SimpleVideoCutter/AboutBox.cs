@@ -1,12 +1,7 @@
 ﻿using SimpleVideoCutter.Properties;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SimpleVideoCutter
@@ -47,7 +42,7 @@ namespace SimpleVideoCutter
         {
             get
             {
-                return Assembly.GetExecutingAssembly().GetName().Version.ToString();
+                return Assembly.GetExecutingAssembly().GetName().Version?.ToString() ?? "1.0.0.0";
             }
         }
 
@@ -113,10 +108,14 @@ namespace SimpleVideoCutter
             Process.Start(new ProcessStartInfo(linkLabelGithubReleases.Text) { UseShellExecute = true });
         }
 
-        private async void AboutBox_Load(object sender, EventArgs e)
+        private void AboutBox_Load(object sender, EventArgs e)
         {
-            var latestRelease = await GitHubVersionCheck.GetLatestReleaseVersionFromGitHub();
-            if (latestRelease != null && latestRelease != Utils.GetCurrentRelease())
+            if (Updater.Instance.NewVersionDownloaded)
+            {
+                this.labelVersion.Text = $"{GlobalStrings.AboutBox_Version} {AssemblyVersion}"
+                    + $" - {GlobalStrings.AboutBox_NewVersionDownloaded}";
+            }
+            else if (Updater.Instance.NewVersionAvailable)
             {
                 this.labelVersion.Text = $"{GlobalStrings.AboutBox_Version} {AssemblyVersion}"
                     + $" - {GlobalStrings.AboutBox_NewVersionAvailable}";
