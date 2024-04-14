@@ -21,7 +21,7 @@ The extraction process is done in background (by [FFmpeg](http://ffmpeg.org/)), 
 
 ## Installation
 
-Download the `SimpleVideoCutterApp-win-Setup.exe` file and simply execute it. *Simple Video Cutter* will be installed automatically (program will be installed in user area, thus admin rights are not required for installation).
+Download the [`SimpleVideoCutterApp-win-Setup.exe`](https://github.com/bartekmotyl/simple-video-cutter/releases/latest/download/SimpleVideoCutterApp-win-Setup.exe)  file and simply execute it. *Simple Video Cutter* will be installed automatically (program will be installed in user area, thus admin rights are not required for installation).
 
 ### Portable installation 
 
