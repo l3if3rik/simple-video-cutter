@@ -23,7 +23,7 @@ The extraction process is done in background (by [FFmpeg](http://ffmpeg.org/)), 
 
 Download the [`SimpleVideoCutterApp-win-Setup.exe`](https://github.com/bartekmotyl/simple-video-cutter/releases/latest/download/SimpleVideoCutterApp-win-Setup.exe)  file and simply execute it. *Simple Video Cutter* will be installed automatically (program will be installed in user area, thus admin rights are not required for installation).
 
-Warning! Windows may incorrectly identify the installer file as a threat. 
+Warning! Windows may incorrectly identify the installer file produced by Velopack as a threat (see details [here](https://docs.velopack.io/troubleshooting/faq)). 
 The file of course does not contain any virus or malware, but Windows incorrectly tries to prevent installing it. In this case one can click "more details" and then the button that allows installation will be shown. 
 Another alternative is to use portable distribution (see below).  
 
