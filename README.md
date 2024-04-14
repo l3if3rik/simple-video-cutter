@@ -19,34 +19,37 @@ You don't have to select the next file from disk manually, just press "next" and
 Location and filenames of created video cuts are assigned automatically basing on patterns specified in the configuration. 
 The extraction process is done in background (by [FFmpeg](http://ffmpeg.org/)), so you can work with next material whilst the previous tasks are being processed. 
 
-## How to use 
+## Installation
 
-### Starting for the first time: 
+Download the `SimpleVideoCutterApp-win-Setup.exe` file and simply execute it. *Simple Video Cutter* will be installed automatically (program will be installed in user area, thus admin rights are not required for installation).
 
-(Check also translations in [README.txt](README.txt))
+### Portable installation 
 
-- Download the [simple-video-cutter.zip](https://github.com/bartekmotyl/simple-video-cutter/releases/latest/download/simple-video-cutter.zip) release package (or visit [releases page](https://github.com/bartekmotyl/simple-video-cutter/releases) and grab latest release package)
-- Unzip release package into a directory.   
-- Start `SimpleVideoCutter.exe` in that directory
-- As [FFmpeg](http://ffmpeg.org/) is required to work with SimpleVideoCutter, you can decide to let SimpleVideoCutter download FFmpeg automatically or you may also download FFmpeg yourself (FFmpeg can be downloaded for free from [FFmpeg release page](https://www.gyan.dev/ffmpeg/builds/)) and set it's path in the Settings dialog.  
-- Click OK to save settings 
+It is also possible to download portable version of *Simple Video Cutter* - `SimpleVideoCutterApp-win-Portable.zip`. Simply unzip the file into desired directory and starts from there. 
+
+## Upgrades
+Since version 0.30, Simple Video Cutter uses [Velopack](https://github.com/velopack/velopack) framework to automatically manage upgrades. Once new version is published, it will be automatically downloaded and installed during next time application starts. Feel free to visit [releases page](https://github.com/bartekmotyl/simple-video-cutter/releases) to manually check whether new version has been published.  
+
+## Installation of FFmpeg 
+
+[FFmpeg](http://ffmpeg.org/) is required to work with *Simple Video Cutter*, you can decide to let *Simple Video Cutter* download FFmpeg automatically or you may also download FFmpeg yourself (FFmpeg can be downloaded for free from [FFmpeg release page](https://www.gyan.dev/ffmpeg/builds/)) and set it's path in the Settings dialog.  
+
+Note: see [below](#portable-installation-in-read-only-folder) in case you are going to install portable version of Simple Video Cutter in a directory where users do not have write access. 
 	
-Note: see [below](#portable-installation)  in case you are going to install SimpleVideoCutter in a directory where users do not have write access. 
-	
-### Working with the tool:
+## How to use Simple Video Cutter
 - Open a video file 
 - The video playback starts automatically; press space to pause/resume (or click in the video area)
 - You can navigate back and forth through video using timeline control at the botom of the screen. Use mouse wheel (with control key pressed) to zoom in and out the timeline. Mouse wheel without control key scrolls the timeline forward and backward. Press shift key for even faster scrolling/zooming. 
-- Select a position and press `[` (or click the correspnding button) to mark start of your cut  
+- Select a position and press `[` (or click the corresponding button) to mark start of your cut  
 - Press `]` to mark end of your cut 
 - You can also use mouse middle button to mark your start / end of your cut
 - Multiple cuts are supported! 
 - Watch out for key frames - read more [here](https://github.com/bartekmotyl/simple-video-cutter/wiki/Video-cutting-challenges)
 - Press `E` (or click 'Enqueue' button) to add task to the queue. 
   Selected portion of the video will be extracted (with help of FFmpeg) and saved in a new file(s). 
-- You can inspect pending and running tasks in the tsks list area. Tasks are processed automatically and disappear once completed. 
+- You can inspect pending and running tasks in the tasks list area. Tasks are processed automatically and disappear once completed. 
 Feel free to open next file (and add next tasks) while task is still in progress - they do not interfere with each other and just queue up. 
-- Use Previos / Next buttons to quickly open next or previous file in the same directory. 
+- Use Previous / Next buttons to quickly open next or previous file in the same directory. 
 
 ### Settings
 In the settings window you can adjust some options, especially directory and filename pattern of the output files. 
@@ -61,8 +64,8 @@ Supported variables are:
 - `{MyComputer}` - shortcut for `Environment.SpecialFolder.MyComputer`
 - `{SameFolder}` - allows to save files in same folder when original video file is located
 
-### Portable installation
-It is possible to install SimpleVideoCutter into a non-writable directly. In this case one has to manually install FFmpeg and configure its path in the settings.
+### Portable installation in read only folder
+It is possible to install *Simple Video Cutter* into a non-writable directly. In this case one has to manually install FFmpeg and configure its path in the settings.
 Configuration file by default is saved in `C:\Users\<username>\AppData\Local\SimpleVideoCutter` (which should be writable for end users). Alternatively, the following command line options can be used to specify different location of config file: 
 * `--configCurrentFolder` - in the same folder where exe file is located
 * `--configLocalApplicationData` - in the `AppData\Local folder` (this is the default)
