@@ -10,6 +10,7 @@ using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.Versioning;
 using System.Threading;
 using System.Windows.Forms;
@@ -124,7 +125,9 @@ namespace SimpleVideoCutter
             }
 
             libVLC = new LibVLC(args.ToArray());
-            
+            libVLC.SetAppId("Simple Video Cutter",
+                Assembly.GetExecutingAssembly().GetName().Version?.ToString() ?? "1.0.0.0", null);
+            libVLC.SetUserAgent("Simple Video Cutter", "Simple Video Cutter");
 
             vlcControl1.MediaPlayer = new MediaPlayer(libVLC);
             vlcControl1.MediaPlayer.SetAudioOutput("mmdevice"); // see #94 and https://stackoverflow.com/questions/76033991/how-to-adjust-a-specific-vlcontrols-volume-when-there-are-multi-vlccontrols-in
