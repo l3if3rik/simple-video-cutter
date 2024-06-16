@@ -48,6 +48,8 @@
             tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             label6 = new System.Windows.Forms.Label();
             comboBoxPreviewSize = new System.Windows.Forms.ComboBox();
+            label7 = new System.Windows.Forms.Label();
+            checkBoxShowQuickSubDirectoryDialog = new System.Windows.Forms.CheckBox();
             flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             buttonCancel = new System.Windows.Forms.Button();
             buttonOK = new System.Windows.Forms.Button();
@@ -155,6 +157,8 @@
             tableLayoutPanel1.Controls.Add(textBoxOutputFilePattern, 1, 3);
             tableLayoutPanel1.Controls.Add(label6, 0, 5);
             tableLayoutPanel1.Controls.Add(comboBoxPreviewSize, 1, 5);
+            tableLayoutPanel1.Controls.Add(label7, 0, 7);
+            tableLayoutPanel1.Controls.Add(checkBoxShowQuickSubDirectoryDialog, 1, 7);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             // 
             // label6
@@ -170,6 +174,18 @@
             comboBoxPreviewSize.FormattingEnabled = true;
             comboBoxPreviewSize.Name = "comboBoxPreviewSize";
             comboBoxPreviewSize.ValueMember = "Value";
+            // 
+            // label7
+            // 
+            resources.ApplyResources(label7, "label7");
+            label7.Name = "label7";
+            // 
+            // checkBoxShowQuickSubDirectoryDialog
+            // 
+            resources.ApplyResources(checkBoxShowQuickSubDirectoryDialog, "checkBoxShowQuickSubDirectoryDialog");
+            checkBoxShowQuickSubDirectoryDialog.Name = "checkBoxShowQuickSubDirectoryDialog";
+            checkBoxShowQuickSubDirectoryDialog.UseVisualStyleBackColor = true;
+            checkBoxShowQuickSubDirectoryDialog.CheckedChanged += checkBox1_CheckedChanged;
             // 
             // flowLayoutPanel1
             // 
@@ -236,5 +252,7 @@
         private System.Windows.Forms.TextBox textBoxOutputFilePattern;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox comboBoxPreviewSize;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.CheckBox checkBoxShowQuickSubDirectoryDialog;
     }
 }

@@ -18,7 +18,7 @@
     <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
     <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
     <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-    <data name="Color1" type="System.Drawing.Color, System.Drawing"">Blue</data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
     <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
         <value>[base64 mime encoded serialized .NET Framework object]</value>
     </data>
@@ -123,14 +123,14 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>65, 8</value>
+    <value>75, 10</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>5, 0, 5, 0</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>176, 30</value>
+    <value>201, 40</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
@@ -158,13 +158,13 @@
     <value>Right</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>65, 40</value>
+    <value>75, 53</value>
   </data>
   <data name="label2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>5, 0, 5, 0</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>176, 34</value>
+    <value>201, 45</value>
   </data>
   <data name="label2.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -191,13 +191,13 @@
     <value>Right</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 74</value>
+    <value>12, 98</value>
   </data>
   <data name="label3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>5, 0, 5, 0</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>231, 30</value>
+    <value>264, 40</value>
   </data>
   <data name="label3.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -224,13 +224,13 @@
     <value>Left</value>
   </data>
   <data name="textBoxFFmpegPath.Location" type="System.Drawing.Point, System.Drawing">
-    <value>249, 110</value>
+    <value>286, 147</value>
   </data>
   <data name="textBoxFFmpegPath.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="textBoxFFmpegPath.Size" type="System.Drawing.Size, System.Drawing">
-    <value>400, 23</value>
+    <value>457, 27</value>
   </data>
   <data name="textBoxFFmpegPath.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -257,13 +257,13 @@
     <value>Right</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>65, 105</value>
+    <value>75, 138</value>
   </data>
   <data name="label4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>5, 0, 5, 0</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>176, 34</value>
+    <value>201, 45</value>
   </data>
   <data name="label4.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -290,13 +290,13 @@
     <value>Left</value>
   </data>
   <data name="textBoxVideoFileExtensions.Location" type="System.Drawing.Point, System.Drawing">
-    <value>249, 172</value>
+    <value>286, 224</value>
   </data>
   <data name="textBoxVideoFileExtensions.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="textBoxVideoFileExtensions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>400, 23</value>
+    <value>457, 27</value>
   </data>
   <data name="textBoxVideoFileExtensions.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -322,13 +322,13 @@ navigating to previous/next video file in directory.</value>
     <value>Right</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>65, 174</value>
+    <value>75, 225</value>
   </data>
   <data name="label5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>5, 0, 5, 0</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>176, 19</value>
+    <value>201, 25</value>
   </data>
   <data name="label5.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -355,13 +355,13 @@ navigating to previous/next video file in directory.</value>
     <value>Left</value>
   </data>
   <data name="buttonOutputDirectory.Location" type="System.Drawing.Point, System.Drawing">
-    <value>657, 44</value>
+    <value>753, 58</value>
   </data>
   <data name="buttonOutputDirectory.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="buttonOutputDirectory.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 26</value>
+    <value>40, 35</value>
   </data>
   <data name="buttonOutputDirectory.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -385,13 +385,13 @@ navigating to previous/next video file in directory.</value>
     <value>Left</value>
   </data>
   <data name="buttonFFmpegPath.Location" type="System.Drawing.Point, System.Drawing">
-    <value>657, 109</value>
+    <value>753, 143</value>
   </data>
   <data name="buttonFFmpegPath.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="buttonFFmpegPath.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 26</value>
+    <value>40, 35</value>
   </data>
   <data name="buttonFFmpegPath.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -415,13 +415,13 @@ navigating to previous/next video file in directory.</value>
     <value>Left</value>
   </data>
   <data name="buttonDefaultDirectory.Location" type="System.Drawing.Point, System.Drawing">
-    <value>657, 10</value>
+    <value>753, 13</value>
   </data>
   <data name="buttonDefaultDirectory.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="buttonDefaultDirectory.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 26</value>
+    <value>40, 35</value>
   </data>
   <data name="buttonDefaultDirectory.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -457,13 +457,13 @@ navigating to previous/next video file in directory.</value>
     <value>{MyComputer}</value>
   </data>
   <data name="comboBoxDefaultDirectory.Location" type="System.Drawing.Point, System.Drawing">
-    <value>249, 11</value>
+    <value>286, 16</value>
   </data>
   <data name="comboBoxDefaultDirectory.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="comboBoxDefaultDirectory.Size" type="System.Drawing.Size, System.Drawing">
-    <value>400, 23</value>
+    <value>457, 28</value>
   </data>
   <data name="comboBoxDefaultDirectory.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -499,13 +499,13 @@ navigating to previous/next video file in directory.</value>
     <value>{SameFolder}</value>
   </data>
   <data name="comboBoxOutputDirectory.Location" type="System.Drawing.Point, System.Drawing">
-    <value>249, 45</value>
+    <value>286, 61</value>
   </data>
   <data name="comboBoxOutputDirectory.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="comboBoxOutputDirectory.Size" type="System.Drawing.Size, System.Drawing">
-    <value>400, 23</value>
+    <value>457, 28</value>
   </data>
   <data name="comboBoxOutputDirectory.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
@@ -529,13 +529,13 @@ navigating to previous/next video file in directory.</value>
     <value>Left</value>
   </data>
   <data name="textBoxOutputFilePattern.Location" type="System.Drawing.Point, System.Drawing">
-    <value>249, 78</value>
+    <value>286, 104</value>
   </data>
   <data name="textBoxOutputFilePattern.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="textBoxOutputFilePattern.Size" type="System.Drawing.Size, System.Drawing">
-    <value>400, 23</value>
+    <value>457, 27</value>
   </data>
   <data name="textBoxOutputFilePattern.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
@@ -565,13 +565,13 @@ navigating to previous/next video file in directory.</value>
     <value>NoControl</value>
   </data>
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>65, 143</value>
+    <value>75, 187</value>
   </data>
   <data name="label6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>5, 0, 5, 0</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>176, 21</value>
+    <value>201, 28</value>
   </data>
   <data name="label6.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
@@ -598,10 +598,13 @@ navigating to previous/next video file in directory.</value>
     <value>Left</value>
   </data>
   <data name="comboBoxPreviewSize.Location" type="System.Drawing.Point, System.Drawing">
-    <value>248, 142</value>
+    <value>284, 187</value>
+  </data>
+  <data name="comboBoxPreviewSize.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="comboBoxPreviewSize.Size" type="System.Drawing.Size, System.Drawing">
-    <value>401, 23</value>
+    <value>458, 28</value>
   </data>
   <data name="comboBoxPreviewSize.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
@@ -618,6 +621,72 @@ navigating to previous/next video file in directory.</value>
   <data name="&gt;&gt;comboBoxPreviewSize.ZOrder" xml:space="preserve">
     <value>14</value>
   </data>
+  <data name="label7.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 263</value>
+  </data>
+  <data name="label7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 0, 5, 0</value>
+  </data>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>262, 25</value>
+  </data>
+  <data name="label7.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>Show "quick subdirectory" dialog</value>
+  </data>
+  <data name="label7.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="&gt;&gt;label7.Name" xml:space="preserve">
+    <value>label7</value>
+  </data>
+  <data name="&gt;&gt;label7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="checkBoxShowQuickSubDirectoryDialog.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="checkBoxShowQuickSubDirectoryDialog.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkBoxShowQuickSubDirectoryDialog.Location" type="System.Drawing.Point, System.Drawing">
+    <value>284, 264</value>
+  </data>
+  <data name="checkBoxShowQuickSubDirectoryDialog.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 24</value>
+  </data>
+  <data name="checkBoxShowQuickSubDirectoryDialog.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="checkBoxShowQuickSubDirectoryDialog.Text" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="&gt;&gt;checkBoxShowQuickSubDirectoryDialog.Name" xml:space="preserve">
+    <value>checkBoxShowQuickSubDirectoryDialog</value>
+  </data>
+  <data name="&gt;&gt;checkBoxShowQuickSubDirectoryDialog.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxShowQuickSubDirectoryDialog.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;checkBoxShowQuickSubDirectoryDialog.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
   <data name="tableLayoutPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
   </data>
@@ -625,16 +694,16 @@ navigating to previous/next video file in directory.</value>
     <value>0, 0</value>
   </data>
   <data name="tableLayoutPanel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="tableLayoutPanel1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>6, 6, 6, 6</value>
+    <value>7, 8, 7, 8</value>
   </data>
   <data name="tableLayoutPanel1.RowCount" type="System.Int32, mscorlib">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>740, 201</value>
+    <value>846, 304</value>
   </data>
   <data name="tableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
@@ -652,19 +721,19 @@ navigating to previous/next video file in directory.</value>
     <value>1</value>
   </data>
   <data name="tableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="comboBoxOutputDirectory" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="textBoxVideoFileExtensions" Row="6" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="buttonFFmpegPath" Row="4" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="label5" Row="6" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="buttonDefaultDirectory" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="buttonOutputDirectory" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="textBoxFFmpegPath" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label2" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label4" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label3" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label1" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="comboBoxDefaultDirectory" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="textBoxOutputFilePattern" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label6" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="comboBoxPreviewSize" Row="5" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="comboBoxOutputDirectory" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="textBoxVideoFileExtensions" Row="6" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="buttonFFmpegPath" Row="4" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="label5" Row="6" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="buttonDefaultDirectory" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="buttonOutputDirectory" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="textBoxFFmpegPath" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label2" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label4" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label3" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label1" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="comboBoxDefaultDirectory" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="textBoxOutputFilePattern" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label6" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="comboBoxPreviewSize" Row="5" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label7" Row="7" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="checkBoxShowQuickSubDirectoryDialog" Row="7" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="flowLayoutPanel1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="buttonCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>636, 10</value>
+    <value>726, 13</value>
   </data>
   <data name="buttonCancel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="buttonCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 26</value>
+    <value>101, 35</value>
   </data>
   <data name="buttonCancel.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -685,13 +754,13 @@ navigating to previous/next video file in directory.</value>
     <value>0</value>
   </data>
   <data name="buttonOK.Location" type="System.Drawing.Point, System.Drawing">
-    <value>540, 10</value>
+    <value>615, 13</value>
   </data>
   <data name="buttonOK.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="buttonOK.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 26</value>
+    <value>101, 35</value>
   </data>
   <data name="buttonOK.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -718,16 +787,16 @@ navigating to previous/next video file in directory.</value>
     <value>RightToLeft</value>
   </data>
   <data name="flowLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 300</value>
+    <value>0, 400</value>
   </data>
   <data name="flowLayoutPanel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="flowLayoutPanel1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>6, 6, 6, 6</value>
+    <value>7, 8, 7, 8</value>
   </data>
   <data name="flowLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>740, 46</value>
+    <value>846, 61</value>
   </data>
   <data name="flowLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
@@ -748,13 +817,13 @@ navigating to previous/next video file in directory.</value>
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>7, 15</value>
+    <value>8, 20</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>740, 346</value>
+    <value>846, 461</value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterParent</value>

@@ -2,6 +2,7 @@
 using System;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace SimpleVideoCutter
@@ -13,6 +14,8 @@ namespace SimpleVideoCutter
         public string DefaultInitialDirectory { get; set; } = "{UserVideos}";
         public string OutputDirectory { get; set; } = "{UserVideos}";
         public string OutputFilePattern { get; set; } = "{FileDate}-{FileNameWithoutExtension}.{Timestamp}{FileExtension}";
+        public string[] QuickSubDirectories { get; set; } = Enumerable.Repeat("", 9).ToArray();
+        public bool ShowQuickSubDirectoryDialog = false;
         public string FFmpegPath { get; set; } = @".\ffmpeg.exe";
         public string[] VideoFilesExtensions { get; set; } = new string[] { ".mov", ".avi", ".mp4", ".wmv", ".rm", ".mpg", ".mkv", ".webm", ".ts" };
 

@@ -285,7 +285,7 @@ namespace SimpleVideoCutter
         {
             string fileInfo = fileBeingPlayed != null ?
                 string.Format("{0:yyyy/MM/dd HH:mm:ss}", new FileInfo(fileBeingPlayed).LastWriteTime)
-                : "N/A"; 
+                : "N/A";
             statusStrip.InvokeIfRequired(() =>
             {
                 toolStripStatusLabelFileDate.Text = fileInfo;
@@ -419,7 +419,7 @@ namespace SimpleVideoCutter
                 ClearAllSelections();
 
             if (e.KeyCode == Keys.E && (e.Modifiers == Keys.None || e.Modifiers == Keys.Shift))
-                this.EnqeueNewTask();
+                this.EnqeueNewTask(e.Modifiers == Keys.Shift);
 
             if (e.KeyCode == Keys.O && e.Modifiers == Keys.Control)
                 this.OpenFile();
@@ -615,17 +615,18 @@ namespace SimpleVideoCutter
             VideoCutterSettings.Instance.StoreSettings();
         }
 
-        private void EnqeueNewTask()
+
+        private FFmpegTask? PrepareTask(bool showAddTaskDialog = false)
         {
             if (videoCutterTimeline1.Selections.Count == 0)
             {
-                return;
+                return null;
             }
 
             if (!EnsureFFmpegConfigured())
-                return;
+                return null;
             if (fileBeingPlayed == null)
-                return;
+                return null;
 
             FileInfo fileInfo = new FileInfo(fileBeingPlayed);
             var outputDir = ReplaceStandardDirectoryPatterns(VideoCutterSettings.Instance.OutputDirectory);
@@ -646,6 +647,7 @@ namespace SimpleVideoCutter
             }).ToArray();
 
             var selectionsOnKeyFrames = videoCutterTimeline1.AreSelectionsOnKeyFrames;
+
             FFmpegTask task = new FFmpegTask()
             {
                 InputFilePath = fileInfo.FullName,
@@ -658,30 +660,53 @@ namespace SimpleVideoCutter
                 State = FFmpegTaskState.Scheduled,
             };
 
-            bool shiftPressed = ModifierKeys == Keys.Shift;
-            if (VideoCutterSettings.Instance.ShowTaskWindow || shiftPressed || !selectionsOnKeyFrames)
-            {
 
+            if (VideoCutterSettings.Instance.ShowTaskWindow || showAddTaskDialog || !selectionsOnKeyFrames)
+            {
                 using (var addTaskDialog = new FormAddTask(task, selectionsOnKeyFrames))
                 {
                     var result = addTaskDialog.ShowDialog(this);
                     if (result == DialogResult.Retry)
                     {
                         videoCutterTimeline1.AdjustSelectionsToKeyFrames();
-                        return;
+                        return null;
                     }
                     else if (result != DialogResult.OK)
                     {
-                        return;
+                        return null;
                     }
 
                     task = addTaskDialog.Task;
                 }
             }
 
+            if(VideoCutterSettings.Instance.ShowQuickSubDirectoryDialog)
+            {
+                using (var chooseOutputDirectory = new ChooseOutputDirectory(task))
+                {
+                    var result = chooseOutputDirectory.ShowDialog(this);
+
+                    task = chooseOutputDirectory.Task;
+                }
+            }
+
             VideoCutterSettings.Instance.ShowTaskWindow = false;
 
+            return task;
+        }
+
+
+        private void EnqeueNewTask(bool showAddTaskDialog = false)
+        {
+            FFmpegTask? task = this.PrepareTask(showAddTaskDialog);
+
+            if (task == null)
+            {
+                return;
+            }
+
             taskProcessor.EnqueueTask(task);
+
             if (!VideoCutterSettings.Instance.KeepSelectionAfterCut)
             {
                 ClearAllSelections();
@@ -756,7 +781,7 @@ namespace SimpleVideoCutter
             {
                 toolStripStatusLabelVolume.Text = $"{GlobalStrings.MainForm_Volume}: {volume} %";
             });
-            
+
             vlcControl1.MediaPlayer!.Volume = volume;
         }
 

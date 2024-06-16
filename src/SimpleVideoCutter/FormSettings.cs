@@ -71,6 +71,7 @@ namespace SimpleVideoCutter
             textBoxFFmpegPath.Text = settings.FFmpegPath;
             textBoxVideoFileExtensions.Text = String.Join(" ,", settings.VideoFilesExtensions);
             comboBoxPreviewSize.SelectedValue = settings.PreviewSize;
+            checkBoxShowQuickSubDirectoryDialog.Checked = settings.ShowQuickSubDirectoryDialog;
 
             SetBackgroundOfFFmpegPath();
         }
@@ -84,6 +85,7 @@ namespace SimpleVideoCutter
             settings.OutputFilePattern = textBoxOutputFilePattern.Text;
             settings.FFmpegPath = textBoxFFmpegPath.Text;
             settings.PreviewSize = (PreviewSize)(Enum.Parse(typeof(PreviewSize), comboBoxPreviewSize.SelectedValue?.ToString() ?? "L"));
+            settings.ShowQuickSubDirectoryDialog = checkBoxShowQuickSubDirectoryDialog.Checked;
             // TODO: parse VideoFilesExtensions
 
             settings.StoreSettings();
@@ -164,6 +166,10 @@ namespace SimpleVideoCutter
             Close();
         }
 
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
 
         internal class ComboBoxItem<T>
         {
