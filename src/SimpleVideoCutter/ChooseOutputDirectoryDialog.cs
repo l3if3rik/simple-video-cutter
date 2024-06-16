@@ -9,8 +9,6 @@ namespace SimpleVideoCutter
 {
     public partial class ChooseOutputDirectory : Form
     {
-        private List<LabelledTextBox> labelledTextBoxes = new List<LabelledTextBox>();
-
         private FFmpegTask task;
 
         private bool isEditMode = false;

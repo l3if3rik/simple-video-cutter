@@ -28,32 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            labelPath = new System.Windows.Forms.Label();
+            panelMain = new System.Windows.Forms.Panel();
+            toggleEditModeButton = new System.Windows.Forms.Button();
             panelDirectoryList = new System.Windows.Forms.FlowLayoutPanel();
             labelDialogExplanation = new System.Windows.Forms.Label();
-            labelPath = new System.Windows.Forms.Label();
-            toggleEditModeButton = new System.Windows.Forms.Button();
+            panelMain.SuspendLayout();
             SuspendLayout();
-            // 
-            // panelDirectoryList
-            // 
-            panelDirectoryList.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            panelDirectoryList.AutoSize = true;
-            panelDirectoryList.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            panelDirectoryList.Location = new System.Drawing.Point(0, 73);
-            panelDirectoryList.MinimumSize = new System.Drawing.Size(100, 100);
-            panelDirectoryList.Name = "panelDirectoryList";
-            panelDirectoryList.Size = new System.Drawing.Size(745, 378);
-            panelDirectoryList.TabIndex = 10;
-            // 
-            // labelDialogExplanation
-            // 
-            labelDialogExplanation.AutoSize = true;
-            labelDialogExplanation.Dock = System.Windows.Forms.DockStyle.Left;
-            labelDialogExplanation.Location = new System.Drawing.Point(0, 0);
-            labelDialogExplanation.Name = "labelDialogExplanation";
-            labelDialogExplanation.Size = new System.Drawing.Size(530, 20);
-            labelDialogExplanation.TabIndex = 11;
-            labelDialogExplanation.Text = "Press a number key to output the video into the corresponding subdirectory of ";
             // 
             // labelPath
             // 
@@ -63,41 +44,77 @@
             labelPath.Size = new System.Drawing.Size(0, 20);
             labelPath.TabIndex = 12;
             // 
+            // panelMain
+            // 
+            panelMain.AutoSize = true;
+            panelMain.Controls.Add(toggleEditModeButton);
+            panelMain.Controls.Add(panelDirectoryList);
+            panelMain.Controls.Add(labelDialogExplanation);
+            panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            panelMain.Location = new System.Drawing.Point(0, 0);
+            panelMain.Name = "panelMain";
+            panelMain.Size = new System.Drawing.Size(746, 371);
+            panelMain.TabIndex = 14;
+            // 
             // toggleEditModeButton
             // 
             toggleEditModeButton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            toggleEditModeButton.Location = new System.Drawing.Point(563, 0);
+            toggleEditModeButton.Location = new System.Drawing.Point(564, 0);
             toggleEditModeButton.Name = "toggleEditModeButton";
             toggleEditModeButton.Size = new System.Drawing.Size(182, 29);
-            toggleEditModeButton.TabIndex = 13;
+            toggleEditModeButton.TabIndex = 16;
             toggleEditModeButton.Text = "Edit directories";
             toggleEditModeButton.UseVisualStyleBackColor = true;
-            toggleEditModeButton.Click += toggleEditModeButton_Click;
-            toggleEditModeButton.KeyPress += toggleEditModeButton_KeyPress;
+            // 
+            // panelDirectoryList
+            // 
+            panelDirectoryList.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            panelDirectoryList.AutoSize = true;
+            panelDirectoryList.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            panelDirectoryList.Location = new System.Drawing.Point(1, 73);
+            panelDirectoryList.MinimumSize = new System.Drawing.Size(100, 100);
+            panelDirectoryList.Name = "panelDirectoryList";
+            panelDirectoryList.Size = new System.Drawing.Size(745, 299);
+            panelDirectoryList.TabIndex = 14;
+            panelDirectoryList.WrapContents = false;
+            // 
+            // labelDialogExplanation
+            // 
+            labelDialogExplanation.AutoSize = true;
+            labelDialogExplanation.Dock = System.Windows.Forms.DockStyle.Left;
+            labelDialogExplanation.Location = new System.Drawing.Point(0, 0);
+            labelDialogExplanation.Name = "labelDialogExplanation";
+            labelDialogExplanation.Size = new System.Drawing.Size(530, 20);
+            labelDialogExplanation.TabIndex = 15;
+            labelDialogExplanation.Text = "Press a number key to output the video into the corresponding subdirectory of ";
             // 
             // ChooseOutputDirectory
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(746, 450);
-            Controls.Add(toggleEditModeButton);
+            AutoSize = true;
+            ClientSize = new System.Drawing.Size(746, 371);
+            Controls.Add(panelMain);
             Controls.Add(labelPath);
-            Controls.Add(panelDirectoryList);
-            Controls.Add(labelDialogExplanation);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "ChooseOutputDirectory";
             ShowInTaskbar = false;
             Text = "Choose quick subdirectory";
             Load += ChooseOutputDirectory_Load;
             KeyPress += ChooseOutputDirectory_KeyPress;
+            panelMain.ResumeLayout(false);
+            panelMain.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
+        private System.Windows.Forms.Label labelPath;
+        private System.Windows.Forms.Panel panelMain;
+        private System.Windows.Forms.Button toggleEditModeButton;
         private System.Windows.Forms.FlowLayoutPanel panelDirectoryList;
         private System.Windows.Forms.Label labelDialogExplanation;
-        private System.Windows.Forms.Label labelPath;
-        private System.Windows.Forms.Button toggleEditModeButton;
     }
 }
