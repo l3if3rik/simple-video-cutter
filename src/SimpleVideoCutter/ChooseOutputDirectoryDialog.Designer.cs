@@ -65,6 +65,8 @@
             toggleEditModeButton.TabIndex = 16;
             toggleEditModeButton.Text = "Edit directories";
             toggleEditModeButton.UseVisualStyleBackColor = true;
+            toggleEditModeButton.Click += ToggleEditModeButton_Click;
+            toggleEditModeButton.KeyPress += ToggleEditModeButton_KeyPress;
             // 
             // panelDirectoryList
             // 

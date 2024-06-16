@@ -66,7 +66,7 @@ namespace SimpleVideoCutter
             }
         }
 
-        private void toggleEditModeButton_Click(object sender, EventArgs e)
+        private void ToggleEditModeButton_Click(object sender, EventArgs e)
         {
             this.isEditMode = !this.isEditMode;
 
@@ -79,11 +79,11 @@ namespace SimpleVideoCutter
                                        .ToArray();
             }
 
-            this.updateInputEditModeStatus();
+            this.UpdateInputEditModeStatus();
         }
 
 
-        private void updateInputEditModeStatus()
+        private void UpdateInputEditModeStatus()
         {
             this.toggleEditModeButton.Text = this.isEditMode ? "Activate directories" : "Edit directories";
 
@@ -94,7 +94,7 @@ namespace SimpleVideoCutter
         }
 
         //Redirect key presses, so the form handles them.
-        private void toggleEditModeButton_KeyPress(object sender, KeyPressEventArgs e)
+        private void ToggleEditModeButton_KeyPress(object sender, KeyPressEventArgs e)
         {
             this.ChooseOutputDirectory_KeyPress(sender, e);
         }
