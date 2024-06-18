@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Drawing;
-using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 using System.Linq;
@@ -54,10 +53,11 @@ namespace SimpleVideoCutter
         {
             for (int i = 1; i <= this.NumberOfSubDirectories; i++)
             {
-                var labelledTextBox = new LabelledTextBox(i.ToString());
+                var labelledTextBox = new LabelledTextBox(i.ToString(), 20, 440);
                 labelledTextBox.BackColor = Color.Transparent;
                 labelledTextBox.Dock = DockStyle.Left;
                 labelledTextBox.TextBox.Enabled = false;
+                // The following two colors are not respected, if the control is disabled.
                 labelledTextBox.TextBox.ForeColor = SystemColors.ControlText;
                 labelledTextBox.TextBox.BackColor = SystemColors.ControlLight;
                 labelledTextBox.TextBox.Text = VideoCutterSettings.Instance.QuickSubDirectories[i - 1];
@@ -85,18 +85,12 @@ namespace SimpleVideoCutter
 
         private void UpdateInputEditModeStatus()
         {
-            this.toggleEditModeButton.Text = this.isEditMode ? "Activate directories" : "Edit directories";
+            this.toggleEditModeButton.Text = this.isEditMode ? "Stop editing" : "Edit directories";
 
             foreach (LabelledTextBox labelledTextBox in panelDirectoryList.Controls)
             {
                 labelledTextBox.TextBox.Enabled = this.isEditMode;
             }
-        }
-
-        //Redirect key presses, so the form handles them.
-        private void ToggleEditModeButton_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            this.ChooseOutputDirectory_KeyPress(sender, e);
         }
     }
 }
