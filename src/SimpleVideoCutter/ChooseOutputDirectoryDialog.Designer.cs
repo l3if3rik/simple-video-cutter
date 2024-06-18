@@ -104,7 +104,6 @@
             Name = "ChooseOutputDirectory";
             ShowInTaskbar = false;
             Text = "Choose quick subdirectory";
-            Load += ChooseOutputDirectory_Load;
             KeyPress += ChooseOutputDirectory_KeyPress;
             panelMain.ResumeLayout(false);
             panelMain.PerformLayout();
