@@ -1,11 +1,13 @@
 ﻿using FFmpeg.NET;
 using LibVLCSharp.Shared;
 using Newtonsoft.Json;
+using SimpleVideoCutter.Actions;
 using SimpleVideoCutter.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
@@ -30,6 +32,10 @@ namespace SimpleVideoCutter
         private string? fileToLoadOnStartup = null;
         private Debouncer debouncerHover = new Debouncer();
         private bool playingSelection = false;
+        private bool shouldAskForDeletionConfirmation = true;
+        private bool shouldNotifyIfCurrentFileIsBeingDeleted = true;
+
+        public string? FileBeingPlayed { get => fileBeingPlayed; }
 
         private bool EnsureFFmpegConfigured()
         {
@@ -86,12 +92,11 @@ namespace SimpleVideoCutter
             this.toolStripContainerMain.LeftToolStripPanel.Join(toolStripTimeline);
             this.toolStripContainerMain.LeftToolStripPanel.Join(toolStripSelection);
 
-
-
             if (VideoCutterSettings.Instance.MainWindowLocation != Rectangle.Empty)
             {
                 var location = VideoCutterSettings.Instance.MainWindowLocation.Location;
                 var size = VideoCutterSettings.Instance.MainWindowLocation.Size;
+
                 if (Utils.IsOnScreen(location, size))
                 {
                     this.StartPosition = FormStartPosition.Manual;
@@ -99,6 +104,7 @@ namespace SimpleVideoCutter
                     this.Size = VideoCutterSettings.Instance.MainWindowLocation.Size;
                 }
             }
+
             if (VideoCutterSettings.Instance.MainWindowMaximized)
             {
                 this.WindowState = FormWindowState.Maximized;
@@ -177,11 +183,11 @@ namespace SimpleVideoCutter
                 }
             };
 
+            Globals.PlaceholderFiller = new PlaceholderFiller(videoCutterTimeline1);
+
             Updater.Instance.StartCheckingVersion();
             ResizePreview();
         }
-
-
 
         private void MainForm_Shown(object? sender, EventArgs e)
         {
@@ -303,7 +309,7 @@ namespace SimpleVideoCutter
         {
             if (lastDirectory == null)
             {
-                lastDirectory = ReplaceStandardDirectoryPatterns(VideoCutterSettings.Instance.DefaultInitialDirectory);
+                lastDirectory = Globals.PlaceholderFiller.ReplaceStandardDirectoryPatterns(VideoCutterSettings.Instance.DefaultInitialDirectory, fileBeingPlayed);
             }
             using (OpenFileDialog fd = new OpenFileDialog())
             {
@@ -319,31 +325,6 @@ namespace SimpleVideoCutter
                     OpenFile(fd.FileName);
                 }
             }
-        }
-
-        private string ReplaceStandardDirectoryPatterns(string str)
-        {
-            return str
-                .Replace("{SameFolder}", Path.GetDirectoryName(fileBeingPlayed))
-                .Replace("{UserVideos}", Environment.GetFolderPath(Environment.SpecialFolder.MyVideos))
-                .Replace("{UserDocuments}", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments))
-                .Replace("{MyComputer}", Environment.GetFolderPath(Environment.SpecialFolder.MyComputer));
-        }
-        private string ReplaceFilePatterns(string str, string path)
-        {
-            var fileInfo = new FileInfo(path);
-
-            return str
-                .Replace("{FileName}", Path.GetFileName(path))
-                .Replace("{FileNameWithoutExtension}", Path.GetFileNameWithoutExtension(path))
-                .Replace("{FileExtension}", Path.GetExtension(path))
-                .Replace("{FileDate}", string.Format("{0:yyyyMMdd-HHmmss}", fileInfo.LastWriteTime))
-                .Replace("{Timestamp}", string.Format("{0:yyyyMMdd-HHmmss}", DateTime.Now))
-                .Replace("{SelectionStart}", string.Format("{0:hhmmss}", TimeSpan.FromMilliseconds(this.videoCutterTimeline1.Selections.OverallStart!.Value)))
-                .Replace("{SelectionEnd}", string.Format("{0:hhmmss}", TimeSpan.FromMilliseconds(this.videoCutterTimeline1.Selections.OverallEnd!.Value)))
-                .Replace("{SelectionStartMs}", string.Format("{0}", this.videoCutterTimeline1.Selections.OverallStart.Value))
-                .Replace("{SelectionEndMs}", string.Format("{0}", this.videoCutterTimeline1.Selections.OverallEnd.Value))
-                .Replace("{Duration}", string.Format("{0:hhmmss}", TimeSpan.FromMilliseconds(this.videoCutterTimeline1.Selections.OverallDuration)));
         }
 
         private void OpenFile(string path)
@@ -616,6 +597,105 @@ namespace SimpleVideoCutter
         }
 
 
+        private void UnloadVideo()
+        {
+            if (vlcControl1.MediaPlayer != null)
+            {
+                vlcControl1.MediaPlayer.Stop();
+                vlcControl1.MediaPlayer.Media?.Dispose();
+                vlcControl1.MediaPlayer.Media = null;
+            }
+
+            if (videoViewHover.MediaPlayer != null)
+            {
+                videoViewHover.MediaPlayer.Stop();
+                videoViewHover.MediaPlayer.Media?.Dispose();
+                videoViewHover.MediaPlayer.Media = null;
+            }
+        }
+
+
+        private void ActionAfterTaskCompletion_ActionExecuting(object? sender, ActionExecutingEventArgs e)
+        {
+            if (e.Action is IActionRemovesOriginalFile && (e.Action as IActionRemovesOriginalFile)?.OriginalFilePath == this.fileBeingPlayed)
+            {
+                if (this.shouldNotifyIfCurrentFileIsBeingDeleted)
+                {
+                    DialogResult dialogResult = MessageBox.Show("As per the settings, the original file will be deleted after the cut was saved." +
+                        " Since you are currently playing this file, the programm will skip to the next file first." +
+                        " Do you want to see this message every time this happens?",
+                        "Playing file about to be deleted",
+                        MessageBoxButtons.YesNo
+                    );
+
+                    if (dialogResult == DialogResult.No)
+                    {
+                        this.shouldNotifyIfCurrentFileIsBeingDeleted = false;
+                    }
+                }
+
+                UnloadVideo();
+                OpenNextFileInDirectory();
+            }
+        }
+
+        private IActionAfterTaskCompletion? GetActionAfterTaskCompletion(FFmpegTask task)
+        {
+            string actionName = VideoCutterSettings.Instance.OriginalFileActionAfterCut ?? "keep";
+            IActionAfterTaskCompletion? action = null;
+
+            if (actionName == "keep" || task.InputFilePath == null)
+            {
+                return null;
+            }
+
+            if (actionName == MoveOriginalFileToDirectory.ActionName)
+            {
+                action = new MoveOriginalFileToDirectory(
+                    task.InputFilePath,
+                    VideoCutterSettings.Instance.OriginalFileAfterCutAbsoluteTargetDirectory
+                );
+            }
+
+            if (actionName == MoveOriginalFileToRelativeDirectory.ActionName)
+            {
+                action = new MoveOriginalFileToRelativeDirectory(
+                    task.InputFilePath,
+                     VideoCutterSettings.Instance.OriginalFileAfterCutRelativeTargetDirectory
+                );
+            }
+
+            if (actionName == DeleteOriginalFile.ActionName)
+            {
+                DialogResult confirmDeletionResult = DialogResult.No;
+
+                if (this.shouldAskForDeletionConfirmation)
+                {
+                    confirmDeletionResult = MessageBox.Show(
+                        "As per the settings, the original file will be deleted. Is this OK? If you choose yes, original files will be deleted without another confirmation.",
+                        "Confirm Deletion",
+                        MessageBoxButtons.YesNo
+                    );
+                }
+                else confirmDeletionResult = DialogResult.Yes;
+
+                if (confirmDeletionResult == DialogResult.Yes)
+                {
+                    action = new DeleteOriginalFile(task.InputFilePath);
+                    this.shouldAskForDeletionConfirmation = false;
+                }
+            }
+
+            if (action == null)
+            {
+                return null;
+            }
+
+            action.ActionExecuting += ActionAfterTaskCompletion_ActionExecuting;
+
+            return action;
+        }
+
         private FFmpegTask? PrepareTask(bool showAddTaskDialog = false)
         {
             if (videoCutterTimeline1.Selections.Count == 0)
@@ -629,8 +709,8 @@ namespace SimpleVideoCutter
                 return null;
 
             FileInfo fileInfo = new FileInfo(fileBeingPlayed);
-            var outputDir = ReplaceStandardDirectoryPatterns(VideoCutterSettings.Instance.OutputDirectory);
-            var outputFileName = ReplaceFilePatterns(VideoCutterSettings.Instance.OutputFilePattern, fileBeingPlayed);
+            var outputDir = Globals.PlaceholderFiller.ReplaceStandardDirectoryPatterns(VideoCutterSettings.Instance.OutputDirectory, fileBeingPlayed);
+            var outputFileName = Globals.PlaceholderFiller.ReplaceFilePatterns(VideoCutterSettings.Instance.OutputFilePattern, fileBeingPlayed);
             var outputFilePath = Path.Combine(outputDir, outputFileName);
             var fileExtension = Path.GetExtension(outputFilePath);
 
@@ -659,7 +739,6 @@ namespace SimpleVideoCutter
                 Lossless = selectionsOnKeyFrames,
                 State = FFmpegTaskState.Scheduled,
             };
-
 
             if (VideoCutterSettings.Instance.ShowTaskWindow || showAddTaskDialog || !selectionsOnKeyFrames)
             {
@@ -691,6 +770,8 @@ namespace SimpleVideoCutter
             }
 
             VideoCutterSettings.Instance.ShowTaskWindow = false;
+
+            task.ActionAfterTaskCompletion = GetActionAfterTaskCompletion(task);
 
             return task;
         }
@@ -751,6 +832,8 @@ namespace SimpleVideoCutter
 
         private string? GetNextPrevFileInDirectory(string currentFilePath, int direction)
         {
+            Debug.WriteLine(currentFilePath);
+
             var currentDir = Path.GetDirectoryName(currentFilePath);
             if (currentDir == null)
                 return null; // wtf?
@@ -764,7 +847,7 @@ namespace SimpleVideoCutter
                 return null; // wtf?
 
             var newIndex = (index + direction + videoFilesArr.Count) % videoFilesArr.Count;
-
+            Debug.WriteLine(Path.Combine(currentDir, videoFilesArr[newIndex]));
             return Path.Combine(currentDir, videoFilesArr[newIndex]);
         }
 

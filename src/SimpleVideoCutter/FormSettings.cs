@@ -72,6 +72,12 @@ namespace SimpleVideoCutter
             textBoxVideoFileExtensions.Text = String.Join(" ,", settings.VideoFilesExtensions);
             comboBoxPreviewSize.SelectedValue = settings.PreviewSize;
             checkBoxShowQuickSubDirectoryDialog.Checked = settings.ShowQuickSubDirectoryDialog;
+            updateRelativeOutputDirectoryComboBox(comboBoxOutputDirectory.Text);
+            groupOriginalFileActions.Controls.OfType<RadioButton>()
+                .FirstOrDefault(rb => rb.Tag.ToString() == settings.OriginalFileActionAfterCut, radioKeepOriginalFile)
+                .Checked = true;
+            textBoxOriginalFileAfterCutAbsoluteTargetDirectory.Text = settings.OriginalFileAfterCutAbsoluteTargetDirectory;
+            comboBoxOriginalFileAfterCutRelativeTargetDirectory.Text = settings.OriginalFileAfterCutRelativeTargetDirectory;
 
             SetBackgroundOfFFmpegPath();
         }
@@ -86,6 +92,10 @@ namespace SimpleVideoCutter
             settings.FFmpegPath = textBoxFFmpegPath.Text;
             settings.PreviewSize = (PreviewSize)(Enum.Parse(typeof(PreviewSize), comboBoxPreviewSize.SelectedValue?.ToString() ?? "L"));
             settings.ShowQuickSubDirectoryDialog = checkBoxShowQuickSubDirectoryDialog.Checked;
+            settings.OriginalFileActionAfterCut = groupOriginalFileActions.Controls.OfType<RadioButton>().First(rb => rb.Checked).Tag?.ToString() ?? "keep";
+            settings.OriginalFileAfterCutAbsoluteTargetDirectory = textBoxOriginalFileAfterCutAbsoluteTargetDirectory.Text;
+            settings.OriginalFileAfterCutRelativeTargetDirectory = comboBoxOriginalFileAfterCutRelativeTargetDirectory.Text;
+
             // TODO: parse VideoFilesExtensions
 
             settings.StoreSettings();
@@ -160,6 +170,14 @@ namespace SimpleVideoCutter
                 comboBoxOutputDirectory.Text = outputDirectoryPath;
         }
 
+        private void buttonOriginalFileTargetDirectory_Click(object sender, EventArgs e)
+        {
+            var moveToDirectoryPath = SelectFolder();
+
+            if (moveToDirectoryPath != null)
+                textBoxOriginalFileAfterCutAbsoluteTargetDirectory.Text = moveToDirectoryPath;
+        }
+
         private void buttonOK_Click(object sender, EventArgs e)
         {
             GUIToSettings();
@@ -169,6 +187,51 @@ namespace SimpleVideoCutter
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void comboBoxPreviewSize_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void folderBrowserDialog1_HelpRequest(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormSettings_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxOutputDirectory_TextChanged(object sender, EventArgs e)
+        {
+            this.updateRelativeOutputDirectoryComboBox(comboBoxOutputDirectory.Text);
+        }
+
+        private void updateRelativeOutputDirectoryComboBox(string path)
+        {
+            comboBoxOriginalFileAfterCutRelativeTargetDirectory.Items.Clear();
+
+            MainForm? mainForm = Application.OpenForms.OfType<MainForm>().Single();
+
+            // In this case, we cannot know the output directory, so we cannot propose subdirectories.
+            if (path.Contains("{SameFolder}") && (mainForm == null || mainForm.FileBeingPlayed == null))
+            {
+                return;
+            }
+
+            string outputDirectory = Globals.PlaceholderFiller.ReplaceStandardDirectoryPatterns(path, mainForm.FileBeingPlayed);
+
+            if (!Directory.Exists(outputDirectory))
+            {
+                return;
+            }
+
+            string[] subDirectories = Directory.GetDirectories(outputDirectory)
+                .Select(path => Path.GetRelativePath(outputDirectory, path)).ToArray();
+
+            comboBoxOriginalFileAfterCutRelativeTargetDirectory.Items.AddRange(subDirectories);
         }
 
         internal class ComboBoxItem<T>

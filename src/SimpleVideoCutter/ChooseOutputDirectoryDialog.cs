@@ -36,9 +36,9 @@ namespace SimpleVideoCutter
 
         private void ChooseOutputDirectory_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(this.isEditMode)
+            if(this.isEditMode || !char.IsAsciiDigit(e.KeyChar))
             {
-                return; 
+                return;
             }
 
             LabelledTextBox labelledTextBox = (LabelledTextBox)panelDirectoryList.Controls[int.Parse(e.KeyChar.ToString()) - 1];
