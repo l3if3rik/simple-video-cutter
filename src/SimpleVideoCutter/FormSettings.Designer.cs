@@ -270,21 +270,21 @@
             // 
             resources.ApplyResources(radioMoveOriginalFileToDirectory, "radioMoveOriginalFileToDirectory");
             radioMoveOriginalFileToDirectory.Name = "radioMoveOriginalFileToDirectory";
-            radioMoveOriginalFileToDirectory.Tag = "move_original_file_to_directory";
+            radioMoveOriginalFileToDirectory.Tag = "";
             radioMoveOriginalFileToDirectory.UseVisualStyleBackColor = true;
             // 
             // radioMoveOriginalFileToRelativeDirectory
             // 
             resources.ApplyResources(radioMoveOriginalFileToRelativeDirectory, "radioMoveOriginalFileToRelativeDirectory");
             radioMoveOriginalFileToRelativeDirectory.Name = "radioMoveOriginalFileToRelativeDirectory";
-            radioMoveOriginalFileToRelativeDirectory.Tag = "move_original_file_to_relative_directory";
+            radioMoveOriginalFileToRelativeDirectory.Tag = "";
             radioMoveOriginalFileToRelativeDirectory.UseVisualStyleBackColor = true;
             // 
             // radioDeleteOriginalFile
             // 
             resources.ApplyResources(radioDeleteOriginalFile, "radioDeleteOriginalFile");
             radioDeleteOriginalFile.Name = "radioDeleteOriginalFile";
-            radioDeleteOriginalFile.Tag = "delete_original_file";
+            radioDeleteOriginalFile.Tag = "";
             radioDeleteOriginalFile.UseVisualStyleBackColor = true;
             // 
             // radioKeepOriginalFile
@@ -293,7 +293,7 @@
             radioKeepOriginalFile.Checked = true;
             radioKeepOriginalFile.Name = "radioKeepOriginalFile";
             radioKeepOriginalFile.TabStop = true;
-            radioKeepOriginalFile.Tag = "keep";
+            radioKeepOriginalFile.Tag = "";
             radioKeepOriginalFile.UseVisualStyleBackColor = true;
             // 
             // checkBoxShowQuickSubDirectoryDialog

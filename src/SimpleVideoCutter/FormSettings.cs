@@ -51,6 +51,10 @@ namespace SimpleVideoCutter
                     Title = ps.ToString()
                 }).ToList();
 
+            this.radioKeepOriginalFile.Tag = "keep";
+            this.radioDeleteOriginalFile.Tag = Actions.DeleteOriginalFile.ActionName;
+            this.radioMoveOriginalFileToRelativeDirectory.Tag = Actions.MoveOriginalFileToRelativeDirectory.ActionName;
+            this.radioMoveOriginalFileToDirectory.Tag = Actions.MoveOriginalFileToDirectory.ActionName;
         }
 
         public void ShowSettingsDialog()
