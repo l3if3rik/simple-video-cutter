@@ -623,7 +623,7 @@ namespace SimpleVideoCutter
                 {
                     DialogResult dialogResult = MessageBox.Show("As per the settings, the original file will be deleted after the cut was saved." +
                         " Since you are currently playing this file, the programm will skip to the next file first." +
-                        " Do you want to see this message every time this happens?",
+                        " Do you want to see this message the next time this happens?",
                         "Playing file about to be deleted",
                         MessageBoxButtons.YesNo
                     );
