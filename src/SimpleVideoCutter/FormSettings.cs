@@ -82,6 +82,7 @@ namespace SimpleVideoCutter
                 .Checked = true;
             textBoxOriginalFileAfterCutAbsoluteTargetDirectory.Text = settings.OriginalFileAfterCutAbsoluteTargetDirectory;
             comboBoxOriginalFileAfterCutRelativeTargetDirectory.Text = settings.OriginalFileAfterCutRelativeTargetDirectory;
+            checkBoxCreateMissingDirectories.Checked = settings.CreateMissingDirectories;
 
             SetBackgroundOfFFmpegPath();
         }
@@ -99,6 +100,7 @@ namespace SimpleVideoCutter
             settings.OriginalFileActionAfterCut = groupOriginalFileActions.Controls.OfType<RadioButton>().First(rb => rb.Checked).Tag?.ToString() ?? "keep";
             settings.OriginalFileAfterCutAbsoluteTargetDirectory = textBoxOriginalFileAfterCutAbsoluteTargetDirectory.Text;
             settings.OriginalFileAfterCutRelativeTargetDirectory = comboBoxOriginalFileAfterCutRelativeTargetDirectory.Text;
+            settings.CreateMissingDirectories = checkBoxCreateMissingDirectories.Checked;
 
             // TODO: parse VideoFilesExtensions
 

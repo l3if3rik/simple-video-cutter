@@ -786,6 +786,8 @@ namespace SimpleVideoCutter
                 return;
             }
 
+            FileHelper.MaybeCreateParentDirectory(task.OutputFilePath);
+
             taskProcessor.EnqueueTask(task);
 
             if (!VideoCutterSettings.Instance.KeepSelectionAfterCut)

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
-using System.Threading;
-using System.Threading.Tasks;
+using static SimpleVideoCutter.FileHelper;
 
 namespace SimpleVideoCutter.Actions
 {
@@ -26,9 +25,12 @@ namespace SimpleVideoCutter.Actions
         public void Execute()
         {
             this.ActionExecuting?.Invoke(this, new ActionExecutingEventArgs(this, ActionName));
-            string TargetPath = Path.Combine(TargetDirectory, Path.GetFileName(OriginalFilePath));
+
+            string targetPath = Path.Combine(TargetDirectory, Path.GetFileName(OriginalFilePath));
             
-            File.Move(this.OriginalFilePath, TargetPath);
+            MaybeCreateParentDirectory(targetPath);
+
+            File.Move(this.OriginalFilePath, targetPath);
         }
     }
 }

@@ -66,6 +66,8 @@
             tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             comboBoxPreviewSize = new System.Windows.Forms.ComboBox();
             label6 = new System.Windows.Forms.Label();
+            label7 = new System.Windows.Forms.Label();
+            checkBoxCreateMissingDirectories = new System.Windows.Forms.CheckBox();
             flowLayoutPanel1.SuspendLayout();
             tabControlSettings.SuspendLayout();
             tabFileSystem.SuspendLayout();
@@ -158,6 +160,7 @@
             // tableLayoutPanel1
             // 
             resources.ApplyResources(tableLayoutPanel1, "tableLayoutPanel1");
+            tableLayoutPanel1.Controls.Add(label7, 0, 7);
             tableLayoutPanel1.Controls.Add(comboBoxOutputDirectory, 1, 1);
             tableLayoutPanel1.Controls.Add(textBoxVideoFileExtensions, 1, 6);
             tableLayoutPanel1.Controls.Add(buttonFFmpegPath, 2, 4);
@@ -171,6 +174,7 @@
             tableLayoutPanel1.Controls.Add(label1, 0, 0);
             tableLayoutPanel1.Controls.Add(comboBoxDefaultDirectory, 1, 0);
             tableLayoutPanel1.Controls.Add(textBoxOutputFilePattern, 1, 3);
+            tableLayoutPanel1.Controls.Add(checkBoxCreateMissingDirectories, 1, 7);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             // 
             // buttonFFmpegPath
@@ -330,6 +334,17 @@
             resources.ApplyResources(label6, "label6");
             label6.Name = "label6";
             // 
+            // label7
+            // 
+            resources.ApplyResources(label7, "label7");
+            label7.Name = "label7";
+            // 
+            // checkBoxCreateMissingDirectories
+            // 
+            resources.ApplyResources(checkBoxCreateMissingDirectories, "checkBoxCreateMissingDirectories");
+            checkBoxCreateMissingDirectories.Name = "checkBoxCreateMissingDirectories";
+            checkBoxCreateMissingDirectories.UseVisualStyleBackColor = true;
+            // 
             // FormSettings
             // 
             AcceptButton = buttonOK;
@@ -398,5 +413,7 @@
         private System.Windows.Forms.ComboBox comboBoxOriginalFileAfterCutRelativeTargetDirectory;
         private System.Windows.Forms.TextBox textBoxOriginalFileAfterCutAbsoluteTargetDirectory;
         private System.Windows.Forms.Button buttonOriginalFileTargetDirectory;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.CheckBox checkBoxCreateMissingDirectories;
     }
 }

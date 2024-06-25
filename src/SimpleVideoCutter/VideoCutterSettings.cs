@@ -16,6 +16,8 @@ namespace SimpleVideoCutter
         public string OutputFilePattern { get; set; } = "{FileDate}-{FileNameWithoutExtension}.{Timestamp}{FileExtension}";
         public string[] QuickSubDirectories { get; set; } = Enumerable.Repeat("", 9).ToArray();
 
+        public bool CreateMissingDirectories { get; set; } = false;
+
         public bool ShowQuickSubDirectoryDialog = false;
 
         public string OriginalFileActionAfterCut = "keep";
