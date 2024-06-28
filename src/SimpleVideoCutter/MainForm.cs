@@ -622,8 +622,8 @@ namespace SimpleVideoCutter
                 if (this.shouldNotifyIfCurrentFileIsBeingDeleted)
                 {
                     DialogResult dialogResult = MessageBox.Show("As per the settings, the original file will be deleted after the cut was saved." +
-                        " Since you are currently playing this file, the programm will skip to the next file first." +
-                        " Do you want to see this message the next time this happens?",
+                        " Since you are currently playing this file, the program will skip to the next file first." +
+                        "\n\nDo you want to see this message the next time this happens?",
                         "Playing file about to be deleted",
                         MessageBoxButtons.YesNo
                     );

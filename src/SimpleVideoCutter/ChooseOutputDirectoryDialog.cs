@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using System.Linq;
@@ -33,41 +32,53 @@ namespace SimpleVideoCutter
             this.labelPath.Text = this.labelPath.Text = "\"" + this.originalOutputDir + "\"";
         }
 
-
         private void ChooseOutputDirectory_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(this.isEditMode || !char.IsAsciiDigit(e.KeyChar))
+            if (this.isEditMode || !char.IsAsciiDigit(e.KeyChar))
             {
                 return;
             }
 
-            LabelledTextBox labelledTextBox = (LabelledTextBox)panelDirectoryList.Controls[int.Parse(e.KeyChar.ToString()) - 1];
-            string subDir = labelledTextBox.TextBox.Text;
-
-            this.task.OutputFilePath = Path.Combine(
-                Path.GetDirectoryName(task.OutputFilePath),
-                subDir,
-                Path.GetFileName(task.OutputFilePath)
-            );
+            NumberedEditableButton editableButton = (NumberedEditableButton)panelDirectoryList.Controls[int.Parse(e.KeyChar.ToString()) - 1];
+            this.SetTaskOutputFilePath(editableButton.Caption);
 
             this.Close();
         }
 
 
+        private void SetTaskOutputFilePath(string subDir)
+        {
+            this.task.OutputFilePath = Path.Combine(
+                Path.GetDirectoryName(task.OutputFilePath),
+                subDir,
+                Path.GetFileName(task.OutputFilePath)
+            );
+        }
+
+        private void ChooseOutputDirectory_ButtonClick(object? sender, EventArgs e)
+        {
+            if (sender != null)
+            {
+                this.SetTaskOutputFilePath(((NumberedEditableButton)sender).Caption);
+            }
+
+            this.Close();
+        }
+
         private void GenerateControls()
         {
             for (int i = 1; i <= this.numberOfSubDirectories; i++)
             {
-                var labelledTextBox = new LabelledTextBox(i.ToString(), 20, 440);
-                labelledTextBox.BackColor = Color.Transparent;
-                labelledTextBox.Dock = DockStyle.Left;
-                labelledTextBox.TextBox.Enabled = false;
-                // The following two colors are not respected, if the control is disabled.
-                labelledTextBox.TextBox.ForeColor = SystemColors.ControlText;
-                labelledTextBox.TextBox.BackColor = SystemColors.Window;
-                labelledTextBox.TextBox.Text = VideoCutterSettings.Instance.QuickSubDirectories[i - 1];
+                var editableButton = new NumberedEditableButton(
+                    i, VideoCutterSettings.Instance.QuickSubDirectories[i - 1],
+                    700, 30,
+                    new ColumnStyle[] { new ColumnStyle(SizeType.Percent, 5), new ColumnStyle(SizeType.Percent, 95) }
+                );
+                editableButton.Dock = DockStyle.Left;
+                editableButton.EditMode = false;
+                editableButton.ButtonClick += ChooseOutputDirectory_ButtonClick;
 
-                panelDirectoryList.Controls.Add(labelledTextBox);
+                panelDirectoryList.Controls.Add(editableButton);
             }
         }
 
@@ -75,33 +86,35 @@ namespace SimpleVideoCutter
         {
             this.isEditMode = !this.isEditMode;
 
+            foreach (NumberedEditableButton editableButton in panelDirectoryList.Controls)
+            {
+                editableButton.EditMode = this.isEditMode;
+            }
+
             if (this.isEditMode)
             {
                 labelDialogExplanation.Text = this.explanationInEditMode;
                 labelPath.Text = String.Empty;
+                this.toggleEditModeButton.Text = "Stop editing";
             }
             else // Edit mode was just left, so the settings will be saved now.
             {
                 labelDialogExplanation.Text = this.explanationStandard;
                 labelPath.Text = "\"" + this.originalOutputDir + "";
+                this.toggleEditModeButton.Text = "Edit directories";
 
                 VideoCutterSettings.Instance.QuickSubDirectories = this.panelDirectoryList.Controls.Cast<Control>()
-                                       .OfType<LabelledTextBox>()
-                                       .Select(labelledTextBox => labelledTextBox.TextBox.Text)
+                                       .OfType<NumberedEditableButton>()
+                                       .Select(editableButton => editableButton.Caption)
                                        .ToArray();
             }
-
-            this.UpdateInputEditModeStatus();
         }
 
-
-        private void UpdateInputEditModeStatus()
+        private void ChooseOutputDirectory_KeyDown(object sender, KeyEventArgs e)
         {
-            this.toggleEditModeButton.Text = this.isEditMode ? "Stop editing" : "Edit directories";
-
-            foreach (LabelledTextBox labelledTextBox in panelDirectoryList.Controls)
+            if (e.KeyCode == Keys.Escape)
             {
-                labelledTextBox.TextBox.Enabled = this.isEditMode;
+                this.Close();
             }
         }
     }

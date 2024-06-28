@@ -39,9 +39,9 @@
             // labelPath
             // 
             labelPath.AutoSize = true;
-            labelPath.Location = new System.Drawing.Point(9, 15);
+            labelPath.Location = new System.Drawing.Point(10, 20);
             labelPath.Name = "labelPath";
-            labelPath.Size = new System.Drawing.Size(31, 15);
+            labelPath.Size = new System.Drawing.Size(37, 20);
             labelPath.TabIndex = 12;
             labelPath.Text = "Path";
             // 
@@ -54,18 +54,16 @@
             panelMain.Controls.Add(labelDialogExplanation);
             panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             panelMain.Location = new System.Drawing.Point(0, 0);
-            panelMain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             panelMain.Name = "panelMain";
-            panelMain.Size = new System.Drawing.Size(475, 174);
+            panelMain.Size = new System.Drawing.Size(543, 232);
             panelMain.TabIndex = 14;
             // 
             // toggleEditModeButton
             // 
             toggleEditModeButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            toggleEditModeButton.Location = new System.Drawing.Point(305, 143);
-            toggleEditModeButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            toggleEditModeButton.Location = new System.Drawing.Point(349, 191);
             toggleEditModeButton.Name = "toggleEditModeButton";
-            toggleEditModeButton.Size = new System.Drawing.Size(159, 22);
+            toggleEditModeButton.Size = new System.Drawing.Size(182, 29);
             toggleEditModeButton.TabIndex = 16;
             toggleEditModeButton.Text = "Edit directories";
             toggleEditModeButton.UseVisualStyleBackColor = true;
@@ -76,38 +74,37 @@
             panelDirectoryList.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             panelDirectoryList.AutoSize = true;
             panelDirectoryList.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            panelDirectoryList.Location = new System.Drawing.Point(1, 64);
-            panelDirectoryList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            panelDirectoryList.MinimumSize = new System.Drawing.Size(88, 75);
+            panelDirectoryList.Location = new System.Drawing.Point(1, 85);
+            panelDirectoryList.MinimumSize = new System.Drawing.Size(101, 100);
             panelDirectoryList.Name = "panelDirectoryList";
-            panelDirectoryList.Size = new System.Drawing.Size(474, 75);
+            panelDirectoryList.Size = new System.Drawing.Size(542, 100);
             panelDirectoryList.TabIndex = 14;
             panelDirectoryList.WrapContents = false;
             // 
             // labelDialogExplanation
             // 
             labelDialogExplanation.AutoSize = true;
-            labelDialogExplanation.Location = new System.Drawing.Point(9, 0);
+            labelDialogExplanation.Location = new System.Drawing.Point(10, 0);
             labelDialogExplanation.Name = "labelDialogExplanation";
-            labelDialogExplanation.Size = new System.Drawing.Size(424, 15);
+            labelDialogExplanation.Size = new System.Drawing.Size(530, 20);
             labelDialogExplanation.TabIndex = 15;
             labelDialogExplanation.Text = "Press a number key to output the video into the corresponding subdirectory of ";
             // 
             // ChooseOutputDirectory
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             AutoSize = true;
-            ClientSize = new System.Drawing.Size(475, 174);
+            ClientSize = new System.Drawing.Size(543, 232);
             Controls.Add(panelMain);
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             KeyPreview = true;
-            Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "ChooseOutputDirectory";
             ShowInTaskbar = false;
             Text = "Output to Subdirectory";
+            KeyDown += ChooseOutputDirectory_KeyDown;
             KeyPress += ChooseOutputDirectory_KeyPress;
             panelMain.ResumeLayout(false);
             panelMain.PerformLayout();
