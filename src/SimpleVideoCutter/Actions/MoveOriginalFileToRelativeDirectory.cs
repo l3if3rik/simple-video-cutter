@@ -5,7 +5,7 @@ namespace SimpleVideoCutter.Actions
 {
     internal class MoveOriginalFileToRelativeDirectory : ActionAfterTaskCompletion, IActionRemovesOriginalFile
     {
-        public static readonly string ActionName = "move_original_file_to_relative_directory";
+        public new static readonly string ActionName = "move_original_file_to_relative_directory";
 
         public readonly string TargetRelativeDirectory;
 

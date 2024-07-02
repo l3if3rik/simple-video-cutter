@@ -4,7 +4,7 @@ namespace SimpleVideoCutter.Actions
 {
     internal class DeleteOriginalFile : ActionAfterTaskCompletion, IActionRemovesOriginalFile
     {
-        public static readonly string ActionName = "delete_original_file";
+        public new static readonly string ActionName = "delete_original_file";
 
         public bool RemovesOriginalFile => true;
 
