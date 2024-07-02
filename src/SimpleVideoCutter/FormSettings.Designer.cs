@@ -81,7 +81,7 @@
             // 
             // folderBrowserDialog1
             // 
-            folderBrowserDialog1.HelpRequest += folderBrowserDialog1_HelpRequest;
+            folderBrowserDialog1.HelpRequest += FolderBrowserDialog1_HelpRequest;
             // 
             // textBoxOutputFilePattern
             // 
@@ -102,7 +102,7 @@
             resources.ApplyResources(textBoxFFmpegPath, "textBoxFFmpegPath");
             textBoxFFmpegPath.Name = "textBoxFFmpegPath";
             toolTip1.SetToolTip(textBoxFFmpegPath, resources.GetString("textBoxFFmpegPath.ToolTip"));
-            textBoxFFmpegPath.TextChanged += textBoxFFmpegPath_TextChanged;
+            textBoxFFmpegPath.TextChanged += TextBoxFFmpegPath_TextChanged;
             // 
             // textBoxVideoFileExtensions
             // 
@@ -118,7 +118,7 @@
             comboBoxOutputDirectory.Items.AddRange(new object[] { resources.GetString("comboBoxOutputDirectory.Items"), resources.GetString("comboBoxOutputDirectory.Items1"), resources.GetString("comboBoxOutputDirectory.Items2"), resources.GetString("comboBoxOutputDirectory.Items3") });
             comboBoxOutputDirectory.Name = "comboBoxOutputDirectory";
             toolTip1.SetToolTip(comboBoxOutputDirectory, resources.GetString("comboBoxOutputDirectory.ToolTip"));
-            comboBoxOutputDirectory.TextChanged += comboBoxOutputDirectory_TextChanged;
+            comboBoxOutputDirectory.TextChanged += ComboBoxOutputDirectory_TextChanged;
             // 
             // flowLayoutPanel1
             // 
@@ -139,7 +139,7 @@
             resources.ApplyResources(buttonOK, "buttonOK");
             buttonOK.Name = "buttonOK";
             buttonOK.UseVisualStyleBackColor = true;
-            buttonOK.Click += buttonOK_Click;
+            buttonOK.Click += ButtonOK_Click;
             // 
             // tabControlSettings
             // 
@@ -182,7 +182,7 @@
             resources.ApplyResources(buttonFFmpegPath, "buttonFFmpegPath");
             buttonFFmpegPath.Name = "buttonFFmpegPath";
             buttonFFmpegPath.UseVisualStyleBackColor = true;
-            buttonFFmpegPath.Click += buttonFFmpegPath_Click;
+            buttonFFmpegPath.Click += ButtonFFmpegPath_Click;
             // 
             // label5
             // 
@@ -194,14 +194,14 @@
             resources.ApplyResources(buttonDefaultDirectory, "buttonDefaultDirectory");
             buttonDefaultDirectory.Name = "buttonDefaultDirectory";
             buttonDefaultDirectory.UseVisualStyleBackColor = true;
-            buttonDefaultDirectory.Click += buttonDefaultDirectory_Click;
+            buttonDefaultDirectory.Click += ButtonDefaultDirectory_Click;
             // 
             // buttonOutputDirectory
             // 
             resources.ApplyResources(buttonOutputDirectory, "buttonOutputDirectory");
             buttonOutputDirectory.Name = "buttonOutputDirectory";
             buttonOutputDirectory.UseVisualStyleBackColor = true;
-            buttonOutputDirectory.Click += buttonOutputDirectory_Click;
+            buttonOutputDirectory.Click += ButtonOutputDirectory_Click;
             // 
             // label2
             // 
@@ -256,7 +256,7 @@
             resources.ApplyResources(buttonOriginalFileTargetDirectory, "buttonOriginalFileTargetDirectory");
             buttonOriginalFileTargetDirectory.Name = "buttonOriginalFileTargetDirectory";
             buttonOriginalFileTargetDirectory.UseVisualStyleBackColor = true;
-            buttonOriginalFileTargetDirectory.Click += buttonOriginalFileTargetDirectory_Click;
+            buttonOriginalFileTargetDirectory.Click += ButtonOriginalFileTargetDirectory_Click;
             // 
             // textBoxOriginalFileAfterCutAbsoluteTargetDirectory
             // 
