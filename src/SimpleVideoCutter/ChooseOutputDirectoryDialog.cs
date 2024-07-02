@@ -17,7 +17,7 @@ namespace SimpleVideoCutter
 
         private readonly string explanationStandard;
 
-        private readonly string originalOutputDir;
+        private readonly string? originalOutputDir;
 
         public FFmpegTask Task { get => task; }
 
@@ -29,7 +29,7 @@ namespace SimpleVideoCutter
             this.GenerateControls();
             this.explanationStandard = labelDialogExplanation.Text;
             this.originalOutputDir = Path.GetDirectoryName(this.task.OutputFilePath);
-            this.labelPath.Text = this.labelPath.Text = "\"" + this.originalOutputDir + "\"";
+            this.labelPath.Text = this.originalOutputDir == null ? "" : this.labelPath.Text = "\"" + this.originalOutputDir + "\"";
         }
 
         private void ChooseOutputDirectory_KeyPress(object sender, KeyPressEventArgs e)
@@ -48,11 +48,14 @@ namespace SimpleVideoCutter
 
         private void SetTaskOutputFilePath(string subDir)
         {
-            this.task.OutputFilePath = Path.Combine(
-                Path.GetDirectoryName(task.OutputFilePath),
-                subDir,
-                Path.GetFileName(task.OutputFilePath)
-            );
+            if(this.task.OutputFilePath != null)
+            {
+                this.task.OutputFilePath = Path.Combine(
+                    Path.GetDirectoryName(task.OutputFilePath) ?? "",
+                    subDir,
+                    Path.GetFileName(task.OutputFilePath)
+                );
+            }
         }
 
         private void ChooseOutputDirectory_ButtonClick(object? sender, EventArgs e)
@@ -100,7 +103,7 @@ namespace SimpleVideoCutter
             else // Edit mode was just left, so the settings will be saved now.
             {
                 labelDialogExplanation.Text = this.explanationStandard;
-                labelPath.Text = "\"" + this.originalOutputDir + "";
+                labelPath.Text = this.originalOutputDir == null ? "" : "\"" + this.originalOutputDir + "";
                 this.toggleEditModeButton.Text = "Edit directories";
 
                 VideoCutterSettings.Instance.QuickSubDirectories = this.panelDirectoryList.Controls.Cast<Control>()

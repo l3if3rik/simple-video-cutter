@@ -78,7 +78,7 @@ namespace SimpleVideoCutter
             checkBoxShowQuickSubDirectoryDialog.Checked = settings.ShowQuickSubDirectoryDialog;
             UpdateRelativeOutputDirectoryComboBox(comboBoxOutputDirectory.Text);
             groupOriginalFileActions.Controls.OfType<RadioButton>()
-                .FirstOrDefault(rb => rb.Tag.ToString() == settings.OriginalFileActionAfterCut, radioKeepOriginalFile)
+                .FirstOrDefault(rb => rb.Tag?.ToString() == settings.OriginalFileActionAfterCut, radioKeepOriginalFile)
                 .Checked = true;
             textBoxOriginalFileAfterCutAbsoluteTargetDirectory.Text = settings.OriginalFileAfterCutAbsoluteTargetDirectory;
             comboBoxOriginalFileAfterCutRelativeTargetDirectory.Text = settings.OriginalFileAfterCutRelativeTargetDirectory;
