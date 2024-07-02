@@ -1,9 +1,8 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 
 namespace SimpleVideoCutter.Actions
 {
-    internal class DeleteOriginalFile : IActionAfterTaskCompletion, IActionRemovesOriginalFile
+    internal class DeleteOriginalFile : ActionAfterTaskCompletion, IActionRemovesOriginalFile
     {
         public static readonly string ActionName = "delete_original_file";
 
@@ -11,17 +10,12 @@ namespace SimpleVideoCutter.Actions
 
         public string OriginalFilePath { get; set; }
 
-        public event EventHandler<ActionExecutingEventArgs>? ActionExecuting;
-
         public DeleteOriginalFile(string originalFilePath)
         {
             this.OriginalFilePath = originalFilePath;
         }
-
-        public void Execute()
+        protected override void DoAction()
         {
-            this.ActionExecuting?.Invoke(this, new ActionExecutingEventArgs(this, ActionName));
-
             File.Delete(this.OriginalFilePath);
         }
     }

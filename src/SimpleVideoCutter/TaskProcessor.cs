@@ -197,7 +197,7 @@ namespace SimpleVideoCutter
         public FFmpegTaskSelection[]? Selections { get; set; }   
         public long OverallDuration { get; set; }
         public bool Lossless { get; set; }
-        public IActionAfterTaskCompletion? ActionAfterTaskCompletion { get; set; }
+        public ActionAfterTaskCompletion? ActionAfterTaskCompletion { get; set; }
         public FFmpegTaskState? State { get; set; }
         public string? ErrorMessage { get; set; }
 

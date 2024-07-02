@@ -639,10 +639,10 @@ namespace SimpleVideoCutter
             }
         }
 
-        private IActionAfterTaskCompletion? GetActionAfterTaskCompletion(FFmpegTask task)
+        private ActionAfterTaskCompletion? GetActionAfterTaskCompletion(FFmpegTask task)
         {
             string actionName = VideoCutterSettings.Instance.OriginalFileActionAfterCut ?? "keep";
-            IActionAfterTaskCompletion? action = null;
+            ActionAfterTaskCompletion? action = null;
 
             if (actionName == "keep" || task.InputFilePath == null)
             {

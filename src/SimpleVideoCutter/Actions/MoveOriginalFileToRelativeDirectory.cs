@@ -1,10 +1,9 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using static SimpleVideoCutter.FileHelper;
 
 namespace SimpleVideoCutter.Actions
 {
-    internal class MoveOriginalFileToRelativeDirectory : IActionAfterTaskCompletion, IActionRemovesOriginalFile
+    internal class MoveOriginalFileToRelativeDirectory : ActionAfterTaskCompletion, IActionRemovesOriginalFile
     {
         public static readonly string ActionName = "move_original_file_to_relative_directory";
 
@@ -14,18 +13,14 @@ namespace SimpleVideoCutter.Actions
 
         public string OriginalFilePath { get; set; }
 
-        public event EventHandler<ActionExecutingEventArgs>? ActionExecuting;
-
         public MoveOriginalFileToRelativeDirectory(string originalFilePath, string targetRelativeDirectory)
         {
             this.TargetRelativeDirectory = targetRelativeDirectory;
             this.OriginalFilePath = originalFilePath;
         }
 
-        public void Execute()
+        protected override void DoAction()
         {
-            this.ActionExecuting?.Invoke(this, new ActionExecutingEventArgs(this, ActionName));
-
             string targetDirectory = Path.Combine(Path.GetDirectoryName(this.OriginalFilePath) ?? ".", this.TargetRelativeDirectory);
             string targetPath = Path.Combine(targetDirectory, Path.GetFileName(this.OriginalFilePath));
 

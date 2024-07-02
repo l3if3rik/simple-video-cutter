@@ -5,11 +5,11 @@ namespace SimpleVideoCutter.Actions
 {
     public class ActionExecutingEventArgs: EventArgs
     {
-        public IActionAfterTaskCompletion Action;
+        public ActionAfterTaskCompletion Action;
 
         public string ActionName;
 
-        public ActionExecutingEventArgs(IActionAfterTaskCompletion action, string actionName)
+        public ActionExecutingEventArgs(ActionAfterTaskCompletion action, string actionName)
         { 
             this.Action = action;
             this.ActionName = actionName;
