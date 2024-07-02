@@ -7,7 +7,7 @@ namespace SimpleVideoCutter
 {
     public partial class ChooseOutputDirectory : Form
     {
-        private FFmpegTask task;
+        private readonly FFmpegTask task;
 
         private bool isEditMode = false;
 
