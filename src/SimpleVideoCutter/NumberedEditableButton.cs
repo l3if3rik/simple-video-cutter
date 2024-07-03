@@ -41,7 +41,7 @@ namespace SimpleVideoCutter
             }
         }
 
-        public event EventHandler<EventArgs> ButtonClick;
+        public event EventHandler<EventArgs>? ButtonClick;
 
         public NumberedEditableButton(int number, string caption, int width, int height, ColumnStyle[] columnStyles)
         {
@@ -84,7 +84,7 @@ namespace SimpleVideoCutter
 
         private void NumberedEditableButton_ButtonClick(object? sender, EventArgs e)
         {
-            this.ButtonClick.Invoke(this, e);
+            this.ButtonClick?.Invoke(this, e);
         }
     }
 }
