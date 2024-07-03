@@ -183,8 +183,6 @@ namespace SimpleVideoCutter
                 }
             };
 
-            Globals.PlaceholderFiller = new PlaceholderFiller(videoCutterTimeline1);
-
             Updater.Instance.StartCheckingVersion();
             ResizePreview();
         }

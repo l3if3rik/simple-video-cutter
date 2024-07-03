@@ -1,13 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Runtime.Versioning;
 
 namespace SimpleVideoCutter
 {
+    [SupportedOSPlatform("windows")]
     internal class Globals
     {
-        public static PlaceholderFiller? PlaceholderFiller { get; set; }
+        private static PlaceholderFiller? PlaceholderFillerSingleton;
+        public static PlaceholderFiller PlaceholderFiller
+        {
+            get
+            {
+                return PlaceholderFillerSingleton ??= new PlaceholderFiller();
+            }
+        }
     }
 }

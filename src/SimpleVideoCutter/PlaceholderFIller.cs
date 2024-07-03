@@ -1,21 +1,39 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.Versioning;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SimpleVideoCutter
 {
     [SupportedOSPlatform("windows")]
     internal class PlaceholderFiller
     {
-        private readonly VideoCutterTimeline videoCutterTimeline;
-
-        public PlaceholderFiller(VideoCutterTimeline videoCutterTimeline)
+        private static VideoCutterTimeline? CachedVideoCutterTimeline;
+        private static VideoCutterTimeline VideoCutterTimeline
         {
-            this.videoCutterTimeline = videoCutterTimeline;
+            get 
+            {
+                if(CachedVideoCutterTimeline == null)
+                {
+                    MainForm? mainForm = (MainForm?)Application.OpenForms["MainForm"];
+
+                    if (mainForm == null)
+                    {
+                        throw new ApplicationException("MainForm could not be found.");
+                    }
+
+                    CachedVideoCutterTimeline = (VideoCutterTimeline?)mainForm.Controls.Find("videoCutterTimeline1", true)
+                        .Single(vct => vct.Name == "videoCutterTimeline1");
+
+                    if (CachedVideoCutterTimeline == null)
+                    {
+                        throw new ApplicationException("videoCutterTimeline1 was not found in MainForm.");
+                    }
+                }
+
+                return CachedVideoCutterTimeline;
+            }
         }
 
         public string ReplaceStandardDirectoryPatterns(string str, string? path)
@@ -37,11 +55,11 @@ namespace SimpleVideoCutter
                 .Replace("{FileExtension}", Path.GetExtension(path))
                 .Replace("{FileDate}", string.Format("{0:yyyyMMdd-HHmmss}", fileInfo.LastWriteTime))
                 .Replace("{Timestamp}", string.Format("{0:yyyyMMdd-HHmmss}", DateTime.Now))
-                .Replace("{SelectionStart}", string.Format("{0:hhmmss}", TimeSpan.FromMilliseconds(this.videoCutterTimeline.Selections.OverallStart!.Value)))
-                .Replace("{SelectionEnd}", string.Format("{0:hhmmss}", TimeSpan.FromMilliseconds(this.videoCutterTimeline.Selections.OverallEnd!.Value)))
-                .Replace("{SelectionStartMs}", string.Format("{0}", this.videoCutterTimeline.Selections.OverallStart.Value))
-                .Replace("{SelectionEndMs}", string.Format("{0}", this.videoCutterTimeline.Selections.OverallEnd.Value))
-                .Replace("{Duration}", string.Format("{0:hhmmss}", TimeSpan.FromMilliseconds(this.videoCutterTimeline.Selections.OverallDuration)));
+                .Replace("{SelectionStart}", string.Format("{0:hhmmss}", TimeSpan.FromMilliseconds(VideoCutterTimeline.Selections.OverallStart!.Value)))
+                .Replace("{SelectionEnd}", string.Format("{0:hhmmss}", TimeSpan.FromMilliseconds(VideoCutterTimeline.Selections.OverallEnd!.Value)))
+                .Replace("{SelectionStartMs}", string.Format("{0}", VideoCutterTimeline.Selections.OverallStart.Value))
+                .Replace("{SelectionEndMs}", string.Format("{0}", VideoCutterTimeline.Selections.OverallEnd.Value))
+                .Replace("{Duration}", string.Format("{0:hhmmss}", TimeSpan.FromMilliseconds(VideoCutterTimeline.Selections.OverallDuration)));
         }
     }
 }

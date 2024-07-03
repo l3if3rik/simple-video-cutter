@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Runtime.Versioning;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ using System.Windows.Forms;
 
 namespace SimpleVideoCutter
 {
+    [SupportedOSPlatform("windows")]
     public partial class FormSettings : Form
     {
         public FormSettings()
@@ -226,7 +228,7 @@ namespace SimpleVideoCutter
             {
                 return;
             }
-
+            
             string outputDirectory = Globals.PlaceholderFiller.ReplaceStandardDirectoryPatterns(path, mainForm.FileBeingPlayed);
 
             if (!Directory.Exists(outputDirectory))
