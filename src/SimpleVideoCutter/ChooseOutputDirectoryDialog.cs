@@ -2,9 +2,11 @@
 using System.IO;
 using System.Windows.Forms;
 using System.Linq;
+using System.Runtime.Versioning;
 
 namespace SimpleVideoCutter
 {
+    [SupportedOSPlatform("windows")]
     public partial class ChooseOutputDirectory : Form
     {
         private readonly FFmpegTask task;

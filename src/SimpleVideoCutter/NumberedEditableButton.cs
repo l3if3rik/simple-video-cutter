@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Drawing;
+using System.Runtime.Versioning;
 using System.Windows.Forms;
 
 namespace SimpleVideoCutter
 {
+    [SupportedOSPlatform("windows")]
     internal class NumberedEditableButton: TableLayoutPanel
     {
         public Button Button { get; private set; }
