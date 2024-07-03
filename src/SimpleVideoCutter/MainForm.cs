@@ -832,8 +832,6 @@ namespace SimpleVideoCutter
 
         private string? GetNextPrevFileInDirectory(string currentFilePath, int direction)
         {
-            Debug.WriteLine(currentFilePath);
-
             var currentDir = Path.GetDirectoryName(currentFilePath);
             if (currentDir == null)
                 return null; // wtf?
@@ -847,7 +845,7 @@ namespace SimpleVideoCutter
                 return null; // wtf?
 
             var newIndex = (index + direction + videoFilesArr.Count) % videoFilesArr.Count;
-            Debug.WriteLine(Path.Combine(currentDir, videoFilesArr[newIndex]));
+
             return Path.Combine(currentDir, videoFilesArr[newIndex]);
         }
 
