@@ -33,7 +33,7 @@ namespace SimpleVideoCutter
         private Debouncer debouncerHover = new Debouncer();
         private bool playingSelection = false;
         private bool shouldAskForDeletionConfirmation = true;
-        private bool shouldNotifyIfCurrentFileIsBeingDeleted = true;
+        private bool shouldNotifyIfCurrentFileIsBeingDeletedOrMoved = true;
 
         public string? FileBeingPlayed { get => fileBeingPlayed; }
 
@@ -617,18 +617,18 @@ namespace SimpleVideoCutter
         {
             if (e.Action is IActionRemovesOriginalFile && (e.Action as IActionRemovesOriginalFile)?.OriginalFilePath == this.fileBeingPlayed)
             {
-                if (this.shouldNotifyIfCurrentFileIsBeingDeleted)
+                if (this.shouldNotifyIfCurrentFileIsBeingDeletedOrMoved)
                 {
-                    DialogResult dialogResult = MessageBox.Show("As per the settings, the original file will be deleted after the cut was saved." +
+                    DialogResult dialogResult = MessageBox.Show("As per the settings, the original file will be deleted/moved after the cut was saved." +
                         " Since you are currently playing this file, the program will skip to the next file first." +
                         "\n\nDo you want to see this message the next time this happens?",
-                        "Playing file about to be deleted",
+                        "Playing file about to be deleted/moved",
                         MessageBoxButtons.YesNo
                     );
 
                     if (dialogResult == DialogResult.No)
                     {
-                        this.shouldNotifyIfCurrentFileIsBeingDeleted = false;
+                        this.shouldNotifyIfCurrentFileIsBeingDeletedOrMoved = false;
                     }
                 }
 
