@@ -81,7 +81,7 @@ namespace SimpleVideoCutter
             groupOriginalFileActions.Controls.OfType<RadioButton>()
                 .FirstOrDefault(rb => rb.Tag?.ToString() == settings.OriginalFileActionAfterCut, radioKeepOriginalFile)
                 .Checked = true;
-            textBoxOriginalFileAfterCutAbsoluteTargetDirectory.Text = settings.OriginalFileAfterCutAbsoluteTargetDirectory;
+            textBoxOriginalFileAbsoluteTargetDirectoryAfterCut.Text = settings.OriginalFileAfterCutAbsoluteTargetDirectory;
             textBoxOriginalFileRelativeTargetDirectoryAfterCut.Text = settings.OriginalFileAfterCutRelativeTargetDirectory;
             checkBoxCreateMissingDirectories.Checked = settings.CreateMissingDirectories;
 
@@ -99,7 +99,7 @@ namespace SimpleVideoCutter
             settings.PreviewSize = (PreviewSize)(Enum.Parse(typeof(PreviewSize), comboBoxPreviewSize.SelectedValue?.ToString() ?? "L"));
             settings.ShowQuickSubDirectoryDialog = checkBoxShowQuickSubDirectoryDialog.Checked;
             settings.OriginalFileActionAfterCut = groupOriginalFileActions.Controls.OfType<RadioButton>().First(rb => rb.Checked).Tag?.ToString() ?? "keep";
-            settings.OriginalFileAfterCutAbsoluteTargetDirectory = textBoxOriginalFileAfterCutAbsoluteTargetDirectory.Text;
+            settings.OriginalFileAfterCutAbsoluteTargetDirectory = textBoxOriginalFileAbsoluteTargetDirectoryAfterCut.Text;
             settings.OriginalFileAfterCutRelativeTargetDirectory = textBoxOriginalFileRelativeTargetDirectoryAfterCut.Text;
             settings.CreateMissingDirectories = checkBoxCreateMissingDirectories.Checked;
 
@@ -182,7 +182,7 @@ namespace SimpleVideoCutter
             var moveToDirectoryPath = SelectFolder();
 
             if (moveToDirectoryPath != null)
-                textBoxOriginalFileAfterCutAbsoluteTargetDirectory.Text = moveToDirectoryPath;
+                textBoxOriginalFileAbsoluteTargetDirectoryAfterCut.Text = moveToDirectoryPath;
         }
 
         private void ButtonOK_Click(object sender, EventArgs e)

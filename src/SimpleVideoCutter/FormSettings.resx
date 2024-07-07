@@ -1137,16 +1137,16 @@ navigating to previous/next video file in directory.</value>
   <data name="&gt;&gt;buttonOriginalFileTargetDirectory.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;textBoxOriginalFileAfterCutAbsoluteTargetDirectory.Name" xml:space="preserve">
-    <value>textBoxOriginalFileAfterCutAbsoluteTargetDirectory</value>
+  <data name="&gt;&gt;textBoxOriginalFileAbsoluteTargetDirectoryAfterCut.Name" xml:space="preserve">
+    <value>textBoxOriginalFileAbsoluteTargetDirectoryAfterCut</value>
   </data>
-  <data name="&gt;&gt;textBoxOriginalFileAfterCutAbsoluteTargetDirectory.Type" xml:space="preserve">
+  <data name="&gt;&gt;textBoxOriginalFileAbsoluteTargetDirectoryAfterCut.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;textBoxOriginalFileAfterCutAbsoluteTargetDirectory.Parent" xml:space="preserve">
+  <data name="&gt;&gt;textBoxOriginalFileAbsoluteTargetDirectoryAfterCut.Parent" xml:space="preserve">
     <value>groupOriginalFileActions</value>
   </data>
-  <data name="&gt;&gt;textBoxOriginalFileAfterCutAbsoluteTargetDirectory.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;textBoxOriginalFileAbsoluteTargetDirectoryAfterCut.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="&gt;&gt;radioMoveOriginalFileToDirectory.Name" xml:space="preserve">
@@ -1278,25 +1278,25 @@ navigating to previous/next video file in directory.</value>
   <data name="&gt;&gt;buttonOriginalFileTargetDirectory.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="textBoxOriginalFileAfterCutAbsoluteTargetDirectory.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="textBoxOriginalFileAbsoluteTargetDirectoryAfterCut.Location" type="System.Drawing.Point, System.Drawing">
     <value>192, 104</value>
   </data>
-  <data name="textBoxOriginalFileAfterCutAbsoluteTargetDirectory.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="textBoxOriginalFileAbsoluteTargetDirectoryAfterCut.Size" type="System.Drawing.Size, System.Drawing">
     <value>395, 23</value>
   </data>
-  <data name="textBoxOriginalFileAfterCutAbsoluteTargetDirectory.TabIndex" type="System.Int32, mscorlib">
+  <data name="textBoxOriginalFileAbsoluteTargetDirectoryAfterCut.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="&gt;&gt;textBoxOriginalFileAfterCutAbsoluteTargetDirectory.Name" xml:space="preserve">
-    <value>textBoxOriginalFileAfterCutAbsoluteTargetDirectory</value>
+  <data name="&gt;&gt;textBoxOriginalFileAbsoluteTargetDirectoryAfterCut.Name" xml:space="preserve">
+    <value>textBoxOriginalFileAbsoluteTargetDirectoryAfterCut</value>
   </data>
-  <data name="&gt;&gt;textBoxOriginalFileAfterCutAbsoluteTargetDirectory.Type" xml:space="preserve">
+  <data name="&gt;&gt;textBoxOriginalFileAbsoluteTargetDirectoryAfterCut.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;textBoxOriginalFileAfterCutAbsoluteTargetDirectory.Parent" xml:space="preserve">
+  <data name="&gt;&gt;textBoxOriginalFileAbsoluteTargetDirectoryAfterCut.Parent" xml:space="preserve">
     <value>groupOriginalFileActions</value>
   </data>
-  <data name="&gt;&gt;textBoxOriginalFileAfterCutAbsoluteTargetDirectory.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;textBoxOriginalFileAbsoluteTargetDirectoryAfterCut.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="radioMoveOriginalFileToDirectory.AutoSize" type="System.Boolean, mscorlib">

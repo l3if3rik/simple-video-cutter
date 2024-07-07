@@ -58,7 +58,7 @@
             groupOriginalFileActions = new System.Windows.Forms.GroupBox();
             textBoxOriginalFileRelativeTargetDirectoryAfterCut = new System.Windows.Forms.TextBox();
             buttonOriginalFileTargetDirectory = new System.Windows.Forms.Button();
-            textBoxOriginalFileAfterCutAbsoluteTargetDirectory = new System.Windows.Forms.TextBox();
+            textBoxOriginalFileAbsoluteTargetDirectoryAfterCut = new System.Windows.Forms.TextBox();
             radioMoveOriginalFileToDirectory = new System.Windows.Forms.RadioButton();
             radioMoveOriginalFileToRelativeDirectory = new System.Windows.Forms.RadioButton();
             radioDeleteOriginalFile = new System.Windows.Forms.RadioButton();
@@ -252,7 +252,7 @@
             // 
             groupOriginalFileActions.Controls.Add(textBoxOriginalFileRelativeTargetDirectoryAfterCut);
             groupOriginalFileActions.Controls.Add(buttonOriginalFileTargetDirectory);
-            groupOriginalFileActions.Controls.Add(textBoxOriginalFileAfterCutAbsoluteTargetDirectory);
+            groupOriginalFileActions.Controls.Add(textBoxOriginalFileAbsoluteTargetDirectoryAfterCut);
             groupOriginalFileActions.Controls.Add(radioMoveOriginalFileToDirectory);
             groupOriginalFileActions.Controls.Add(radioMoveOriginalFileToRelativeDirectory);
             groupOriginalFileActions.Controls.Add(radioDeleteOriginalFile);
@@ -273,10 +273,10 @@
             buttonOriginalFileTargetDirectory.UseVisualStyleBackColor = true;
             buttonOriginalFileTargetDirectory.Click += ButtonOriginalFileTargetDirectory_Click;
             // 
-            // textBoxOriginalFileAfterCutAbsoluteTargetDirectory
+            // textBoxOriginalFileAbsoluteTargetDirectoryAfterCut
             // 
-            resources.ApplyResources(textBoxOriginalFileAfterCutAbsoluteTargetDirectory, "textBoxOriginalFileAfterCutAbsoluteTargetDirectory");
-            textBoxOriginalFileAfterCutAbsoluteTargetDirectory.Name = "textBoxOriginalFileAfterCutAbsoluteTargetDirectory";
+            resources.ApplyResources(textBoxOriginalFileAbsoluteTargetDirectoryAfterCut, "textBoxOriginalFileAbsoluteTargetDirectoryAfterCut");
+            textBoxOriginalFileAbsoluteTargetDirectoryAfterCut.Name = "textBoxOriginalFileAbsoluteTargetDirectoryAfterCut";
             // 
             // radioMoveOriginalFileToDirectory
             // 
@@ -407,7 +407,7 @@
         private System.Windows.Forms.RadioButton radioKeepOriginalFile;
         private System.Windows.Forms.RadioButton radioMoveOriginalFileToRelativeDirectory;
         private System.Windows.Forms.RadioButton radioMoveOriginalFileToDirectory;
-        private System.Windows.Forms.TextBox textBoxOriginalFileAfterCutAbsoluteTargetDirectory;
+        private System.Windows.Forms.TextBox textBoxOriginalFileAbsoluteTargetDirectoryAfterCut;
         private System.Windows.Forms.Button buttonOriginalFileTargetDirectory;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.CheckBox checkBoxCreateMissingDirectories;
