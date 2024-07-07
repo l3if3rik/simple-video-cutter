@@ -675,6 +675,42 @@ navigating to previous/next video file in directory.</value>
   <data name="tableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label7" Row="7" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="comboBoxOutputDirectory" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="textBoxVideoFileExtensions" Row="6" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="buttonFFmpegPath" Row="4" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="label5" Row="6" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="buttonDefaultDirectory" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="buttonOutputDirectory" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="textBoxFFmpegPath" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label2" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label4" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label3" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label1" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="comboBoxDefaultDirectory" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="textBoxOutputFilePattern" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="checkBoxCreateMissingDirectories" Row="7" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
+  <data name="label7.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>65, 175</value>
+  </data>
+  <data name="label7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 19</value>
+  </data>
+  <data name="label7.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>Create missing directories:</value>
+  </data>
+  <data name="label7.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="&gt;&gt;label7.Name" xml:space="preserve">
+    <value>label7</value>
+  </data>
+  <data name="&gt;&gt;label7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="buttonFFmpegPath.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left</value>
   </data>
@@ -954,6 +990,36 @@ navigating to previous/next video file in directory.</value>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
+  <data name="checkBoxCreateMissingDirectories.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="checkBoxCreateMissingDirectories.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkBoxCreateMissingDirectories.Location" type="System.Drawing.Point, System.Drawing">
+    <value>248, 175</value>
+  </data>
+  <data name="checkBoxCreateMissingDirectories.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 19</value>
+  </data>
+  <data name="checkBoxCreateMissingDirectories.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="checkBoxCreateMissingDirectories.Text" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="&gt;&gt;checkBoxCreateMissingDirectories.Name" xml:space="preserve">
+    <value>checkBoxCreateMissingDirectories</value>
+  </data>
+  <data name="&gt;&gt;checkBoxCreateMissingDirectories.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxCreateMissingDirectories.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;checkBoxCreateMissingDirectories.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
   <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
     <value>groupBox1</value>
   </data>
@@ -1047,6 +1113,18 @@ navigating to previous/next video file in directory.</value>
   <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="&gt;&gt;textBoxOriginalFileRelativeTargetDirectoryAfterCut.Name" xml:space="preserve">
+    <value>textBoxOriginalFileRelativeTargetDirectoryAfterCut</value>
+  </data>
+  <data name="&gt;&gt;textBoxOriginalFileRelativeTargetDirectoryAfterCut.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBoxOriginalFileRelativeTargetDirectoryAfterCut.Parent" xml:space="preserve">
+    <value>groupOriginalFileActions</value>
+  </data>
+  <data name="&gt;&gt;textBoxOriginalFileRelativeTargetDirectoryAfterCut.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="&gt;&gt;buttonOriginalFileTargetDirectory.Name" xml:space="preserve">
     <value>buttonOriginalFileTargetDirectory</value>
   </data>
@@ -1057,7 +1135,7 @@ navigating to previous/next video file in directory.</value>
     <value>groupOriginalFileActions</value>
   </data>
   <data name="&gt;&gt;buttonOriginalFileTargetDirectory.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="&gt;&gt;textBoxOriginalFileAfterCutAbsoluteTargetDirectory.Name" xml:space="preserve">
     <value>textBoxOriginalFileAfterCutAbsoluteTargetDirectory</value>
@@ -1069,18 +1147,6 @@ navigating to previous/next video file in directory.</value>
     <value>groupOriginalFileActions</value>
   </data>
   <data name="&gt;&gt;textBoxOriginalFileAfterCutAbsoluteTargetDirectory.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;comboBoxOriginalFileAfterCutRelativeTargetDirectory.Name" xml:space="preserve">
-    <value>comboBoxOriginalFileAfterCutRelativeTargetDirectory</value>
-  </data>
-  <data name="&gt;&gt;comboBoxOriginalFileAfterCutRelativeTargetDirectory.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;comboBoxOriginalFileAfterCutRelativeTargetDirectory.Parent" xml:space="preserve">
-    <value>groupOriginalFileActions</value>
-  </data>
-  <data name="&gt;&gt;comboBoxOriginalFileAfterCutRelativeTargetDirectory.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="&gt;&gt;radioMoveOriginalFileToDirectory.Name" xml:space="preserve">
@@ -1158,6 +1224,27 @@ navigating to previous/next video file in directory.</value>
   <data name="&gt;&gt;groupOriginalFileActions.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="textBoxOriginalFileRelativeTargetDirectoryAfterCut.Location" type="System.Drawing.Point, System.Drawing">
+    <value>192, 72</value>
+  </data>
+  <data name="textBoxOriginalFileRelativeTargetDirectoryAfterCut.Size" type="System.Drawing.Size, System.Drawing">
+    <value>437, 23</value>
+  </data>
+  <data name="textBoxOriginalFileRelativeTargetDirectoryAfterCut.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;textBoxOriginalFileRelativeTargetDirectoryAfterCut.Name" xml:space="preserve">
+    <value>textBoxOriginalFileRelativeTargetDirectoryAfterCut</value>
+  </data>
+  <data name="&gt;&gt;textBoxOriginalFileRelativeTargetDirectoryAfterCut.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBoxOriginalFileRelativeTargetDirectoryAfterCut.Parent" xml:space="preserve">
+    <value>groupOriginalFileActions</value>
+  </data>
+  <data name="&gt;&gt;textBoxOriginalFileRelativeTargetDirectoryAfterCut.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="buttonOriginalFileTargetDirectory.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left</value>
   </data>
@@ -1189,7 +1276,7 @@ navigating to previous/next video file in directory.</value>
     <value>groupOriginalFileActions</value>
   </data>
   <data name="&gt;&gt;buttonOriginalFileTargetDirectory.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="textBoxOriginalFileAfterCutAbsoluteTargetDirectory.Location" type="System.Drawing.Point, System.Drawing">
     <value>192, 104</value>
@@ -1210,27 +1297,6 @@ navigating to previous/next video file in directory.</value>
     <value>groupOriginalFileActions</value>
   </data>
   <data name="&gt;&gt;textBoxOriginalFileAfterCutAbsoluteTargetDirectory.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="comboBoxOriginalFileAfterCutRelativeTargetDirectory.Location" type="System.Drawing.Point, System.Drawing">
-    <value>192, 75</value>
-  </data>
-  <data name="comboBoxOriginalFileAfterCutRelativeTargetDirectory.Size" type="System.Drawing.Size, System.Drawing">
-    <value>437, 23</value>
-  </data>
-  <data name="comboBoxOriginalFileAfterCutRelativeTargetDirectory.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;comboBoxOriginalFileAfterCutRelativeTargetDirectory.Name" xml:space="preserve">
-    <value>comboBoxOriginalFileAfterCutRelativeTargetDirectory</value>
-  </data>
-  <data name="&gt;&gt;comboBoxOriginalFileAfterCutRelativeTargetDirectory.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;comboBoxOriginalFileAfterCutRelativeTargetDirectory.Parent" xml:space="preserve">
-    <value>groupOriginalFileActions</value>
-  </data>
-  <data name="&gt;&gt;comboBoxOriginalFileAfterCutRelativeTargetDirectory.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="radioMoveOriginalFileToDirectory.AutoSize" type="System.Boolean, mscorlib">
@@ -1547,72 +1613,6 @@ navigating to previous/next video file in directory.</value>
   </data>
   <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="label7.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>65, 175</value>
-  </data>
-  <data name="label7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
-  </data>
-  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>176, 19</value>
-  </data>
-  <data name="label7.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
-  </data>
-  <data name="label7.Text" xml:space="preserve">
-    <value>Create missing directories:</value>
-  </data>
-  <data name="label7.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="&gt;&gt;label7.Name" xml:space="preserve">
-    <value>label7</value>
-  </data>
-  <data name="&gt;&gt;label7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="checkBoxCreateMissingDirectories.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="checkBoxCreateMissingDirectories.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="checkBoxCreateMissingDirectories.Location" type="System.Drawing.Point, System.Drawing">
-    <value>248, 175</value>
-  </data>
-  <data name="checkBoxCreateMissingDirectories.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 19</value>
-  </data>
-  <data name="checkBoxCreateMissingDirectories.TabIndex" type="System.Int32, mscorlib">
-    <value>18</value>
-  </data>
-  <data name="checkBoxCreateMissingDirectories.Text" xml:space="preserve">
-    <value>Yes</value>
-  </data>
-  <data name="&gt;&gt;checkBoxCreateMissingDirectories.Name" xml:space="preserve">
-    <value>checkBoxCreateMissingDirectories</value>
-  </data>
-  <data name="&gt;&gt;checkBoxCreateMissingDirectories.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBoxCreateMissingDirectories.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;checkBoxCreateMissingDirectories.ZOrder" xml:space="preserve">
-    <value>14</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

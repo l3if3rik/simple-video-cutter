@@ -43,6 +43,7 @@
             tabControlSettings = new System.Windows.Forms.TabControl();
             tabFileSystem = new System.Windows.Forms.TabPage();
             tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            label7 = new System.Windows.Forms.Label();
             buttonFFmpegPath = new System.Windows.Forms.Button();
             label5 = new System.Windows.Forms.Label();
             buttonDefaultDirectory = new System.Windows.Forms.Button();
@@ -51,12 +52,13 @@
             label4 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
+            checkBoxCreateMissingDirectories = new System.Windows.Forms.CheckBox();
             tabWorkflow = new System.Windows.Forms.TabPage();
             groupBox1 = new System.Windows.Forms.GroupBox();
             groupOriginalFileActions = new System.Windows.Forms.GroupBox();
+            textBoxOriginalFileRelativeTargetDirectoryAfterCut = new System.Windows.Forms.TextBox();
             buttonOriginalFileTargetDirectory = new System.Windows.Forms.Button();
             textBoxOriginalFileAfterCutAbsoluteTargetDirectory = new System.Windows.Forms.TextBox();
-            comboBoxOriginalFileAfterCutRelativeTargetDirectory = new System.Windows.Forms.ComboBox();
             radioMoveOriginalFileToDirectory = new System.Windows.Forms.RadioButton();
             radioMoveOriginalFileToRelativeDirectory = new System.Windows.Forms.RadioButton();
             radioDeleteOriginalFile = new System.Windows.Forms.RadioButton();
@@ -66,8 +68,6 @@
             tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             comboBoxPreviewSize = new System.Windows.Forms.ComboBox();
             label6 = new System.Windows.Forms.Label();
-            label7 = new System.Windows.Forms.Label();
-            checkBoxCreateMissingDirectories = new System.Windows.Forms.CheckBox();
             flowLayoutPanel1.SuspendLayout();
             tabControlSettings.SuspendLayout();
             tabFileSystem.SuspendLayout();
@@ -118,7 +118,6 @@
             comboBoxOutputDirectory.Items.AddRange(new object[] { resources.GetString("comboBoxOutputDirectory.Items"), resources.GetString("comboBoxOutputDirectory.Items1"), resources.GetString("comboBoxOutputDirectory.Items2"), resources.GetString("comboBoxOutputDirectory.Items3") });
             comboBoxOutputDirectory.Name = "comboBoxOutputDirectory";
             toolTip1.SetToolTip(comboBoxOutputDirectory, resources.GetString("comboBoxOutputDirectory.ToolTip"));
-            comboBoxOutputDirectory.TextChanged += ComboBoxOutputDirectory_TextChanged;
             // 
             // flowLayoutPanel1
             // 
@@ -177,6 +176,11 @@
             tableLayoutPanel1.Controls.Add(checkBoxCreateMissingDirectories, 1, 7);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             // 
+            // label7
+            // 
+            resources.ApplyResources(label7, "label7");
+            label7.Name = "label7";
+            // 
             // buttonFFmpegPath
             // 
             resources.ApplyResources(buttonFFmpegPath, "buttonFFmpegPath");
@@ -223,6 +227,12 @@
             resources.ApplyResources(label1, "label1");
             label1.Name = "label1";
             // 
+            // checkBoxCreateMissingDirectories
+            // 
+            resources.ApplyResources(checkBoxCreateMissingDirectories, "checkBoxCreateMissingDirectories");
+            checkBoxCreateMissingDirectories.Name = "checkBoxCreateMissingDirectories";
+            checkBoxCreateMissingDirectories.UseVisualStyleBackColor = true;
+            // 
             // tabWorkflow
             // 
             tabWorkflow.Controls.Add(groupBox1);
@@ -240,9 +250,9 @@
             // 
             // groupOriginalFileActions
             // 
+            groupOriginalFileActions.Controls.Add(textBoxOriginalFileRelativeTargetDirectoryAfterCut);
             groupOriginalFileActions.Controls.Add(buttonOriginalFileTargetDirectory);
             groupOriginalFileActions.Controls.Add(textBoxOriginalFileAfterCutAbsoluteTargetDirectory);
-            groupOriginalFileActions.Controls.Add(comboBoxOriginalFileAfterCutRelativeTargetDirectory);
             groupOriginalFileActions.Controls.Add(radioMoveOriginalFileToDirectory);
             groupOriginalFileActions.Controls.Add(radioMoveOriginalFileToRelativeDirectory);
             groupOriginalFileActions.Controls.Add(radioDeleteOriginalFile);
@@ -250,6 +260,11 @@
             resources.ApplyResources(groupOriginalFileActions, "groupOriginalFileActions");
             groupOriginalFileActions.Name = "groupOriginalFileActions";
             groupOriginalFileActions.TabStop = false;
+            // 
+            // textBoxOriginalFileRelativeTargetDirectoryAfterCut
+            // 
+            resources.ApplyResources(textBoxOriginalFileRelativeTargetDirectoryAfterCut, "textBoxOriginalFileRelativeTargetDirectoryAfterCut");
+            textBoxOriginalFileRelativeTargetDirectoryAfterCut.Name = "textBoxOriginalFileRelativeTargetDirectoryAfterCut";
             // 
             // buttonOriginalFileTargetDirectory
             // 
@@ -262,13 +277,6 @@
             // 
             resources.ApplyResources(textBoxOriginalFileAfterCutAbsoluteTargetDirectory, "textBoxOriginalFileAfterCutAbsoluteTargetDirectory");
             textBoxOriginalFileAfterCutAbsoluteTargetDirectory.Name = "textBoxOriginalFileAfterCutAbsoluteTargetDirectory";
-            // 
-            // comboBoxOriginalFileAfterCutRelativeTargetDirectory
-            // 
-            comboBoxOriginalFileAfterCutRelativeTargetDirectory.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            comboBoxOriginalFileAfterCutRelativeTargetDirectory.FormattingEnabled = true;
-            resources.ApplyResources(comboBoxOriginalFileAfterCutRelativeTargetDirectory, "comboBoxOriginalFileAfterCutRelativeTargetDirectory");
-            comboBoxOriginalFileAfterCutRelativeTargetDirectory.Name = "comboBoxOriginalFileAfterCutRelativeTargetDirectory";
             // 
             // radioMoveOriginalFileToDirectory
             // 
@@ -333,17 +341,6 @@
             // 
             resources.ApplyResources(label6, "label6");
             label6.Name = "label6";
-            // 
-            // label7
-            // 
-            resources.ApplyResources(label7, "label7");
-            label7.Name = "label7";
-            // 
-            // checkBoxCreateMissingDirectories
-            // 
-            resources.ApplyResources(checkBoxCreateMissingDirectories, "checkBoxCreateMissingDirectories");
-            checkBoxCreateMissingDirectories.Name = "checkBoxCreateMissingDirectories";
-            checkBoxCreateMissingDirectories.UseVisualStyleBackColor = true;
             // 
             // FormSettings
             // 
@@ -410,10 +407,10 @@
         private System.Windows.Forms.RadioButton radioKeepOriginalFile;
         private System.Windows.Forms.RadioButton radioMoveOriginalFileToRelativeDirectory;
         private System.Windows.Forms.RadioButton radioMoveOriginalFileToDirectory;
-        private System.Windows.Forms.ComboBox comboBoxOriginalFileAfterCutRelativeTargetDirectory;
         private System.Windows.Forms.TextBox textBoxOriginalFileAfterCutAbsoluteTargetDirectory;
         private System.Windows.Forms.Button buttonOriginalFileTargetDirectory;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.CheckBox checkBoxCreateMissingDirectories;
+        private System.Windows.Forms.TextBox textBoxOriginalFileRelativeTargetDirectoryAfterCut;
     }
 }
