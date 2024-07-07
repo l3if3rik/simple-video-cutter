@@ -35,8 +35,6 @@ namespace SimpleVideoCutter
         private bool shouldAskForDeletionConfirmation = true;
         private bool shouldNotifyIfCurrentFileIsBeingDeletedOrMoved = true;
 
-        public string? FileBeingPlayed { get => fileBeingPlayed; }
-
         private bool EnsureFFmpegConfigured()
         {
             if (VideoCutterSettings.Instance.FFmpegPath == null || !File.Exists(VideoCutterSettings.Instance.FFmpegPath))
