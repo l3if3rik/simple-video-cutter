@@ -1,13 +1,10 @@
-﻿using FFmpeg.NET;
-using LibVLCSharp.Shared;
-using Newtonsoft.Json;
+﻿using LibVLCSharp.Shared;
 using SimpleVideoCutter.Actions;
 using SimpleVideoCutter.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
@@ -34,6 +31,7 @@ namespace SimpleVideoCutter
         private bool playingSelection = false;
         private bool shouldAskForDeletionConfirmation = true;
         private bool shouldNotifyIfCurrentFileIsBeingDeletedOrMoved = true;
+        public PlaceholderFiller placeholderFiller;
 
         private bool EnsureFFmpegConfigured()
         {
@@ -109,6 +107,8 @@ namespace SimpleVideoCutter
             }
 
             this.videoViewHover.Visible = VideoCutterSettings.Instance.ShowPreview;
+
+            this.placeholderFiller = new PlaceholderFiller(this.videoCutterTimeline1);
         }
 
         private void MainForm_Load(object? sender, EventArgs e)
@@ -305,7 +305,7 @@ namespace SimpleVideoCutter
         {
             if (lastDirectory == null)
             {
-                lastDirectory = Globals.PlaceholderFiller.ReplaceStandardDirectoryPatterns(VideoCutterSettings.Instance.DefaultInitialDirectory, fileBeingPlayed);
+                lastDirectory = placeholderFiller.ReplaceStandardDirectoryPatterns(VideoCutterSettings.Instance.DefaultInitialDirectory, fileBeingPlayed);
             }
             using (OpenFileDialog fd = new OpenFileDialog())
             {
@@ -705,8 +705,8 @@ namespace SimpleVideoCutter
                 return null;
 
             FileInfo fileInfo = new FileInfo(fileBeingPlayed);
-            var outputDir = Globals.PlaceholderFiller.ReplaceStandardDirectoryPatterns(VideoCutterSettings.Instance.OutputDirectory, fileBeingPlayed);
-            var outputFileName = Globals.PlaceholderFiller.ReplaceFilePatterns(VideoCutterSettings.Instance.OutputFilePattern, fileBeingPlayed);
+            var outputDir = placeholderFiller.ReplaceStandardDirectoryPatterns(VideoCutterSettings.Instance.OutputDirectory, fileBeingPlayed);
+            var outputFileName = placeholderFiller.ReplaceFilePatterns(VideoCutterSettings.Instance.OutputFilePattern, fileBeingPlayed);
             var outputFilePath = Path.Combine(outputDir, outputFileName);
             var fileExtension = Path.GetExtension(outputFilePath);
 

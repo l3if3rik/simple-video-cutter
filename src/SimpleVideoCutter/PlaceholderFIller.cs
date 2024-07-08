@@ -1,39 +1,17 @@
 ﻿using System;
 using System.IO;
-using System.Linq;
 using System.Runtime.Versioning;
-using System.Windows.Forms;
 
 namespace SimpleVideoCutter
 {
     [SupportedOSPlatform("windows")]
-    internal class PlaceholderFiller
+    public class PlaceholderFiller
     {
-        private static VideoCutterTimeline? CachedVideoCutterTimeline;
-        private static VideoCutterTimeline VideoCutterTimeline
+        private VideoCutterTimeline VideoCutterTimeline;
+
+        public PlaceholderFiller(VideoCutterTimeline videoCutterTimeline)
         {
-            get 
-            {
-                if(CachedVideoCutterTimeline == null)
-                {
-                    MainForm? mainForm = (MainForm?)Application.OpenForms["MainForm"];
-
-                    if (mainForm == null)
-                    {
-                        throw new ApplicationException("MainForm could not be found.");
-                    }
-
-                    CachedVideoCutterTimeline = (VideoCutterTimeline?)mainForm.Controls.Find("videoCutterTimeline1", true)
-                        .Single(vct => vct.Name == "videoCutterTimeline1");
-
-                    if (CachedVideoCutterTimeline == null)
-                    {
-                        throw new ApplicationException("videoCutterTimeline1 was not found in MainForm.");
-                    }
-                }
-
-                return CachedVideoCutterTimeline;
-            }
+            VideoCutterTimeline = videoCutterTimeline;
         }
 
         public string ReplaceStandardDirectoryPatterns(string str, string? path)
