@@ -23,6 +23,7 @@ namespace SimpleVideoCutter
         public string OriginalFileActionAfterCut = "keep";
         public string OriginalFileAfterCutAbsoluteTargetDirectory = "";
         public string OriginalFileAfterCutRelativeTargetDirectory = "";
+        public bool ShouldAskForDeletionConfirmation = true;
         public string FFmpegPath { get; set; } = @".\ffmpeg.exe";
         public string[] VideoFilesExtensions { get; set; } = new string[] { ".mov", ".avi", ".mp4", ".wmv", ".rm", ".mpg", ".mkv", ".webm", ".ts" };
 

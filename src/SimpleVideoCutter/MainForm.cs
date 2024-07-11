@@ -29,7 +29,6 @@ namespace SimpleVideoCutter
         private string? fileToLoadOnStartup = null;
         private Debouncer debouncerHover = new Debouncer();
         private bool playingSelection = false;
-        private bool shouldAskForDeletionConfirmation = true;
         private bool shouldNotifyIfCurrentFileIsBeingDeletedOrMoved = true;
         public PlaceholderFiller placeholderFiller;
 
@@ -665,7 +664,7 @@ namespace SimpleVideoCutter
             {
                 DialogResult confirmDeletionResult = DialogResult.No;
 
-                if (this.shouldAskForDeletionConfirmation)
+                if (VideoCutterSettings.Instance.ShouldAskForDeletionConfirmation)
                 {
                     confirmDeletionResult = MessageBox.Show(
                         "As per the settings, the original file will be deleted. Is this OK? If you choose yes, original files will be deleted without another confirmation.",
@@ -678,7 +677,7 @@ namespace SimpleVideoCutter
                 if (confirmDeletionResult == DialogResult.Yes)
                 {
                     action = new DeleteOriginalFile(task.InputFilePath);
-                    this.shouldAskForDeletionConfirmation = false;
+                    VideoCutterSettings.Instance.ShouldAskForDeletionConfirmation = false;
                 }
             }
 
