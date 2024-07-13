@@ -630,7 +630,6 @@ namespace SimpleVideoCutter
                 }
 
                 UnloadVideo();
-                OpenNextFileInDirectory();
             }
         }
 
