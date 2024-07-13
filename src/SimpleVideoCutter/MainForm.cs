@@ -607,6 +607,10 @@ namespace SimpleVideoCutter
                 videoViewHover.MediaPlayer.Media?.Dispose();
                 videoViewHover.MediaPlayer.Media = null;
             }
+
+            ClearAllSelections();
+            UpdateIndexLabel();
+            EnableButtons();
         }
 
 
