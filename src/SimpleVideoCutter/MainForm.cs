@@ -621,7 +621,7 @@ namespace SimpleVideoCutter
                 if (this.shouldNotifyIfCurrentFileIsBeingDeletedOrMoved)
                 {
                     DialogResult dialogResult = MessageBox.Show("As per the settings, the original file will be deleted/moved after the cut was saved." +
-                        " Since you are currently playing this file, the program will skip to the next file first." +
+                        " Since you are currently playing this file, it will be unloaded." +
                         "\n\nDo you want to see this message the next time this happens?",
                         "Playing file about to be deleted/moved",
                         MessageBoxButtons.YesNo
