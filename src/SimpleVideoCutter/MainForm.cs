@@ -195,7 +195,7 @@ namespace SimpleVideoCutter
             EnsureFFmpegConfigured();
 
             taskProcessor.Start();
-            EnableButtons();
+            UpdateButtonStates();
 
             if (fileToLoadOnStartup != null)
             {
@@ -211,7 +211,7 @@ namespace SimpleVideoCutter
             {
                 videoCutterTimeline1.Position = length;
             });
-            EnableButtons();
+            UpdateButtonStates();
         }
 
         private void VlcControl1_PositionChanged(object? sender, MediaPlayerPositionChangedEventArgs e)
@@ -249,7 +249,7 @@ namespace SimpleVideoCutter
             {
                 videoCutterTimeline1.Position = position;
             });
-            EnableButtons();
+            UpdateButtonStates();
         }
 
         private void VlcControl1_LengthChanged(object? sender, MediaPlayerLengthChangedEventArgs e)
@@ -261,13 +261,13 @@ namespace SimpleVideoCutter
             {
                 videoCutterTimeline1.Length = length;
             });
-            EnableButtons();
+            UpdateButtonStates();
         }
 
         private void VlcControl1_Stopped(object? sender, EventArgs e)
         {
             playingSelection = false;
-            EnableButtons();
+            UpdateButtonStates();
         }
 
         private void VlcControl1_Paused(object? sender, EventArgs e)
@@ -279,7 +279,7 @@ namespace SimpleVideoCutter
             {
                 videoCutterTimeline1.Position = (int)(position * length);
             });
-            EnableButtons();
+            UpdateButtonStates();
         }
 
         private void VlcControl1_MediaChanged(object? sender, MediaPlayerMediaChangedEventArgs e)
@@ -291,13 +291,13 @@ namespace SimpleVideoCutter
             {
                 toolStripStatusLabelFileDate.Text = fileInfo;
             });
-            EnableButtons();
+            UpdateButtonStates();
 
         }
 
         private void VlcControl1_Playing(object? sender, EventArgs e)
         {
-            EnableButtons();
+            UpdateButtonStates();
         }
 
         private void OpenFile()
@@ -339,7 +339,7 @@ namespace SimpleVideoCutter
 
             ClearAllSelections();
             UpdateIndexLabel();
-            EnableButtons();
+            UpdateButtonStates();
 
             vlcControl1.MediaPlayer.Mute = VideoCutterSettings.Instance.Mute;
             vlcControl1.MediaPlayer.Play(new Media(libVLC!, path, FromType.FromPath));
@@ -359,12 +359,12 @@ namespace SimpleVideoCutter
             {
                 if (fileBeingPlayed != null)
                     vlcControl1.MediaPlayer.Play(new Media(libVLC!, fileBeingPlayed, FromType.FromPath));
-                EnableButtons();
+                UpdateButtonStates();
             }
             else
             {
                 vlcControl1.MediaPlayer.Pause();
-                EnableButtons();
+                UpdateButtonStates();
             }
         }
 
@@ -524,7 +524,7 @@ namespace SimpleVideoCutter
         private void VideoCutterTimeline1_SelectionChanged(object? sender, SelectionChangedEventArgs e)
         {
             UpdateSelectionLabel();
-            EnableButtons();
+            UpdateButtonStates();
         }
 
 
@@ -610,7 +610,7 @@ namespace SimpleVideoCutter
 
             ClearAllSelections();
             UpdateIndexLabel();
-            EnableButtons();
+            UpdateButtonStates();
         }
 
 
@@ -916,7 +916,7 @@ namespace SimpleVideoCutter
 
         }
 
-        private void EnableButtons()
+        private void UpdateButtonStates()
         {
             var isFileLoaded = fileBeingPlayed != null;
             var isSelection = videoCutterTimeline1.Selections.Count > 0;
@@ -1050,7 +1050,7 @@ namespace SimpleVideoCutter
         {
             VideoCutterSettings.Instance.Mute = !VideoCutterSettings.Instance.Mute;
             vlcControl1.MediaPlayer!.Mute = VideoCutterSettings.Instance.Mute;
-            EnableButtons();
+            UpdateButtonStates();
         }
 
         private void PlaySelection()
