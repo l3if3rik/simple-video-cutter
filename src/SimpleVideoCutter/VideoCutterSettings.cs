@@ -15,17 +15,13 @@ namespace SimpleVideoCutter
         public string OutputDirectory { get; set; } = "{UserVideos}";
         public string OutputFilePattern { get; set; } = "{FileDate}-{FileNameWithoutExtension}.{Timestamp}{FileExtension}";
         public string[] QuickSubDirectories { get; set; } = Enumerable.Repeat("", 9).ToArray();
-
         public bool CreateMissingDirectories { get; set; } = false;
-
-        public bool ShowQuickSubDirectoryDialog = false;
-
-        public string? ActionAfterTaskCompletion;
-        public string ActionInputFileTargetDirectory = "";
-        public string ActionInputFileRelativeTargetDirectory = "";
+        public bool ShowQuickSubDirectoryDialog { get; set; } = false;
+        public string? ActionAfterTaskCompletion { get; set; }
+        public string ActionInputFileTargetDirectory { get; set; } = "";
+        public string ActionInputFileRelativeTargetDirectory { get; set; } = "";
         public string FFmpegPath { get; set; } = @".\ffmpeg.exe";
         public string[] VideoFilesExtensions { get; set; } = new string[] { ".mov", ".avi", ".mp4", ".wmv", ".rm", ".mpg", ".mkv", ".webm", ".ts" };
-
         public bool Mute { get; set; } = false;
         public bool ShowPreview { get; set; } = true;
         public bool KeepSelectionAfterCut { get; set; } = true;
