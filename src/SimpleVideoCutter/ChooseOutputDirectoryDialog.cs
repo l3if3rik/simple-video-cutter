@@ -112,6 +112,8 @@ namespace SimpleVideoCutter
                                        .OfType<NumberedEditableButton>()
                                        .Select(editableButton => editableButton.Caption)
                                        .ToArray();
+
+                VideoCutterSettings.Instance.StoreSettings();
             }
         }
 
