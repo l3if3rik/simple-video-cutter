@@ -7,7 +7,15 @@ namespace SimpleVideoCutter.Actions
     {
         public static readonly string ActionName = "";
 
+        public FFmpegTask Task;
+
         public event EventHandler<ActionExecutingEventArgs>? ActionExecuting;
+
+        public ActionAfterTaskCompletion(FFmpegTask task)
+        {
+            this.Task = task;
+        }
+        
         protected abstract void DoAction();
 
         public void Execute()

@@ -55,14 +55,14 @@
             checkBoxCreateMissingDirectories = new System.Windows.Forms.CheckBox();
             tabWorkflow = new System.Windows.Forms.TabPage();
             groupBox1 = new System.Windows.Forms.GroupBox();
-            groupOriginalFileActions = new System.Windows.Forms.GroupBox();
-            textBoxOriginalFileRelativeTargetDirectoryAfterCut = new System.Windows.Forms.TextBox();
-            buttonOriginalFileTargetDirectory = new System.Windows.Forms.Button();
-            textBoxOriginalFileAbsoluteTargetDirectoryAfterCut = new System.Windows.Forms.TextBox();
-            radioMoveOriginalFileToDirectory = new System.Windows.Forms.RadioButton();
-            radioMoveOriginalFileToRelativeDirectory = new System.Windows.Forms.RadioButton();
-            radioDeleteOriginalFile = new System.Windows.Forms.RadioButton();
-            radioKeepOriginalFile = new System.Windows.Forms.RadioButton();
+            groupInputFileActions = new System.Windows.Forms.GroupBox();
+            textBoxInputFileRelativeTargetDirectory = new System.Windows.Forms.TextBox();
+            buttonInputFileTargetDirectory = new System.Windows.Forms.Button();
+            textBoxInputFileTargetDirectory = new System.Windows.Forms.TextBox();
+            radioMoveInputFileToDirectory = new System.Windows.Forms.RadioButton();
+            radioMoveInputFileToRelativeDirectory = new System.Windows.Forms.RadioButton();
+            radioDeleteInputFile = new System.Windows.Forms.RadioButton();
+            radioKeepInputFile = new System.Windows.Forms.RadioButton();
             checkBoxShowQuickSubDirectoryDialog = new System.Windows.Forms.CheckBox();
             tabOther = new System.Windows.Forms.TabPage();
             tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -74,7 +74,7 @@
             tableLayoutPanel1.SuspendLayout();
             tabWorkflow.SuspendLayout();
             groupBox1.SuspendLayout();
-            groupOriginalFileActions.SuspendLayout();
+            groupInputFileActions.SuspendLayout();
             tabOther.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             SuspendLayout();
@@ -242,71 +242,71 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(groupOriginalFileActions);
+            groupBox1.Controls.Add(groupInputFileActions);
             groupBox1.Controls.Add(checkBoxShowQuickSubDirectoryDialog);
             resources.ApplyResources(groupBox1, "groupBox1");
             groupBox1.Name = "groupBox1";
             groupBox1.TabStop = false;
             // 
-            // groupOriginalFileActions
+            // groupInputFileActions
             // 
-            groupOriginalFileActions.Controls.Add(textBoxOriginalFileRelativeTargetDirectoryAfterCut);
-            groupOriginalFileActions.Controls.Add(buttonOriginalFileTargetDirectory);
-            groupOriginalFileActions.Controls.Add(textBoxOriginalFileAbsoluteTargetDirectoryAfterCut);
-            groupOriginalFileActions.Controls.Add(radioMoveOriginalFileToDirectory);
-            groupOriginalFileActions.Controls.Add(radioMoveOriginalFileToRelativeDirectory);
-            groupOriginalFileActions.Controls.Add(radioDeleteOriginalFile);
-            groupOriginalFileActions.Controls.Add(radioKeepOriginalFile);
-            resources.ApplyResources(groupOriginalFileActions, "groupOriginalFileActions");
-            groupOriginalFileActions.Name = "groupOriginalFileActions";
-            groupOriginalFileActions.TabStop = false;
+            groupInputFileActions.Controls.Add(textBoxInputFileRelativeTargetDirectory);
+            groupInputFileActions.Controls.Add(buttonInputFileTargetDirectory);
+            groupInputFileActions.Controls.Add(textBoxInputFileTargetDirectory);
+            groupInputFileActions.Controls.Add(radioMoveInputFileToDirectory);
+            groupInputFileActions.Controls.Add(radioMoveInputFileToRelativeDirectory);
+            groupInputFileActions.Controls.Add(radioDeleteInputFile);
+            groupInputFileActions.Controls.Add(radioKeepInputFile);
+            resources.ApplyResources(groupInputFileActions, "groupInputFileActions");
+            groupInputFileActions.Name = "groupInputFileActions";
+            groupInputFileActions.TabStop = false;
             // 
-            // textBoxOriginalFileRelativeTargetDirectoryAfterCut
+            // textBoxInputFileRelativeTargetDirectory
             // 
-            resources.ApplyResources(textBoxOriginalFileRelativeTargetDirectoryAfterCut, "textBoxOriginalFileRelativeTargetDirectoryAfterCut");
-            textBoxOriginalFileRelativeTargetDirectoryAfterCut.Name = "textBoxOriginalFileRelativeTargetDirectoryAfterCut";
+            resources.ApplyResources(textBoxInputFileRelativeTargetDirectory, "textBoxInputFileRelativeTargetDirectory");
+            textBoxInputFileRelativeTargetDirectory.Name = "textBoxInputFileRelativeTargetDirectory";
             // 
-            // buttonOriginalFileTargetDirectory
+            // buttonInputFileTargetDirectory
             // 
-            resources.ApplyResources(buttonOriginalFileTargetDirectory, "buttonOriginalFileTargetDirectory");
-            buttonOriginalFileTargetDirectory.Name = "buttonOriginalFileTargetDirectory";
-            buttonOriginalFileTargetDirectory.UseVisualStyleBackColor = true;
-            buttonOriginalFileTargetDirectory.Click += ButtonOriginalFileTargetDirectory_Click;
+            resources.ApplyResources(buttonInputFileTargetDirectory, "buttonInputFileTargetDirectory");
+            buttonInputFileTargetDirectory.Name = "buttonInputFileTargetDirectory";
+            buttonInputFileTargetDirectory.UseVisualStyleBackColor = true;
+            buttonInputFileTargetDirectory.Click += ButtonInputFileTargetDirectory_Click;
             // 
-            // textBoxOriginalFileAbsoluteTargetDirectoryAfterCut
+            // textBoxInputFileTargetDirectory
             // 
-            resources.ApplyResources(textBoxOriginalFileAbsoluteTargetDirectoryAfterCut, "textBoxOriginalFileAbsoluteTargetDirectoryAfterCut");
-            textBoxOriginalFileAbsoluteTargetDirectoryAfterCut.Name = "textBoxOriginalFileAbsoluteTargetDirectoryAfterCut";
+            resources.ApplyResources(textBoxInputFileTargetDirectory, "textBoxInputFileTargetDirectory");
+            textBoxInputFileTargetDirectory.Name = "textBoxInputFileTargetDirectory";
             // 
-            // radioMoveOriginalFileToDirectory
+            // radioMoveInputFileToDirectory
             // 
-            resources.ApplyResources(radioMoveOriginalFileToDirectory, "radioMoveOriginalFileToDirectory");
-            radioMoveOriginalFileToDirectory.Name = "radioMoveOriginalFileToDirectory";
-            radioMoveOriginalFileToDirectory.Tag = "";
-            radioMoveOriginalFileToDirectory.UseVisualStyleBackColor = true;
+            resources.ApplyResources(radioMoveInputFileToDirectory, "radioMoveInputFileToDirectory");
+            radioMoveInputFileToDirectory.Name = "radioMoveInputFileToDirectory";
+            radioMoveInputFileToDirectory.Tag = "";
+            radioMoveInputFileToDirectory.UseVisualStyleBackColor = true;
             // 
-            // radioMoveOriginalFileToRelativeDirectory
+            // radioMoveInputFileToRelativeDirectory
             // 
-            resources.ApplyResources(radioMoveOriginalFileToRelativeDirectory, "radioMoveOriginalFileToRelativeDirectory");
-            radioMoveOriginalFileToRelativeDirectory.Name = "radioMoveOriginalFileToRelativeDirectory";
-            radioMoveOriginalFileToRelativeDirectory.Tag = "";
-            radioMoveOriginalFileToRelativeDirectory.UseVisualStyleBackColor = true;
+            resources.ApplyResources(radioMoveInputFileToRelativeDirectory, "radioMoveInputFileToRelativeDirectory");
+            radioMoveInputFileToRelativeDirectory.Name = "radioMoveInputFileToRelativeDirectory";
+            radioMoveInputFileToRelativeDirectory.Tag = "";
+            radioMoveInputFileToRelativeDirectory.UseVisualStyleBackColor = true;
             // 
-            // radioDeleteOriginalFile
+            // radioDeleteInputFile
             // 
-            resources.ApplyResources(radioDeleteOriginalFile, "radioDeleteOriginalFile");
-            radioDeleteOriginalFile.Name = "radioDeleteOriginalFile";
-            radioDeleteOriginalFile.Tag = "";
-            radioDeleteOriginalFile.UseVisualStyleBackColor = true;
+            resources.ApplyResources(radioDeleteInputFile, "radioDeleteInputFile");
+            radioDeleteInputFile.Name = "radioDeleteInputFile";
+            radioDeleteInputFile.Tag = "";
+            radioDeleteInputFile.UseVisualStyleBackColor = true;
             // 
-            // radioKeepOriginalFile
+            // radioKeepInputFile
             // 
-            resources.ApplyResources(radioKeepOriginalFile, "radioKeepOriginalFile");
-            radioKeepOriginalFile.Checked = true;
-            radioKeepOriginalFile.Name = "radioKeepOriginalFile";
-            radioKeepOriginalFile.TabStop = true;
-            radioKeepOriginalFile.Tag = "";
-            radioKeepOriginalFile.UseVisualStyleBackColor = true;
+            resources.ApplyResources(radioKeepInputFile, "radioKeepInputFile");
+            radioKeepInputFile.Checked = true;
+            radioKeepInputFile.Name = "radioKeepInputFile";
+            radioKeepInputFile.TabStop = true;
+            radioKeepInputFile.Tag = "";
+            radioKeepInputFile.UseVisualStyleBackColor = true;
             // 
             // checkBoxShowQuickSubDirectoryDialog
             // 
@@ -365,8 +365,8 @@
             tabWorkflow.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            groupOriginalFileActions.ResumeLayout(false);
-            groupOriginalFileActions.PerformLayout();
+            groupInputFileActions.ResumeLayout(false);
+            groupInputFileActions.PerformLayout();
             tabOther.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             ResumeLayout(false);
@@ -402,15 +402,15 @@
         private System.Windows.Forms.TextBox textBoxOutputFilePattern;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.CheckBox checkBoxShowQuickSubDirectoryDialog;
-        private System.Windows.Forms.GroupBox groupOriginalFileActions;
-        private System.Windows.Forms.RadioButton radioDeleteOriginalFile;
-        private System.Windows.Forms.RadioButton radioKeepOriginalFile;
-        private System.Windows.Forms.RadioButton radioMoveOriginalFileToRelativeDirectory;
-        private System.Windows.Forms.RadioButton radioMoveOriginalFileToDirectory;
-        private System.Windows.Forms.TextBox textBoxOriginalFileAbsoluteTargetDirectoryAfterCut;
-        private System.Windows.Forms.Button buttonOriginalFileTargetDirectory;
+        private System.Windows.Forms.GroupBox groupInputFileActions;
+        private System.Windows.Forms.RadioButton radioDeleteInputFile;
+        private System.Windows.Forms.RadioButton radioKeepInputFile;
+        private System.Windows.Forms.RadioButton radioMoveInputFileToRelativeDirectory;
+        private System.Windows.Forms.RadioButton radioMoveInputFileToDirectory;
+        private System.Windows.Forms.TextBox textBoxInputFileTargetDirectory;
+        private System.Windows.Forms.Button buttonInputFileTargetDirectory;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.CheckBox checkBoxCreateMissingDirectories;
-        private System.Windows.Forms.TextBox textBoxOriginalFileRelativeTargetDirectoryAfterCut;
+        private System.Windows.Forms.TextBox textBoxInputFileRelativeTargetDirectory;
     }
 }

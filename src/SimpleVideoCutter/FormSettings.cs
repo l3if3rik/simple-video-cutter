@@ -53,10 +53,9 @@ namespace SimpleVideoCutter
                     Title = ps.ToString()
                 }).ToList();
 
-            this.radioKeepOriginalFile.Tag = "keep";
-            this.radioDeleteOriginalFile.Tag = Actions.DeleteOriginalFile.ActionName;
-            this.radioMoveOriginalFileToRelativeDirectory.Tag = Actions.MoveOriginalFileToRelativeDirectory.ActionName;
-            this.radioMoveOriginalFileToDirectory.Tag = Actions.MoveOriginalFileToDirectory.ActionName;
+            this.radioDeleteInputFile.Tag = typeof(Actions.DeleteInputFile).Name;
+            this.radioMoveInputFileToRelativeDirectory.Tag = typeof(Actions.MoveInputFileToRelativeDirectory).Name;
+            this.radioMoveInputFileToDirectory.Tag = typeof(Actions.MoveInputFileToDirectory).Name;
         }
 
         public void ShowSettingsDialog()
@@ -78,11 +77,11 @@ namespace SimpleVideoCutter
             textBoxVideoFileExtensions.Text = String.Join(" ,", settings.VideoFilesExtensions);
             comboBoxPreviewSize.SelectedValue = settings.PreviewSize;
             checkBoxShowQuickSubDirectoryDialog.Checked = settings.ShowQuickSubDirectoryDialog;
-            groupOriginalFileActions.Controls.OfType<RadioButton>()
-                .FirstOrDefault(rb => rb.Tag?.ToString() == settings.OriginalFileActionAfterCut, radioKeepOriginalFile)
+            groupInputFileActions.Controls.OfType<RadioButton>()
+                .FirstOrDefault(rb => rb.Tag?.ToString() == settings.ActionAfterTaskCompletion, radioKeepInputFile)
                 .Checked = true;
-            textBoxOriginalFileAbsoluteTargetDirectoryAfterCut.Text = settings.OriginalFileAfterCutAbsoluteTargetDirectory;
-            textBoxOriginalFileRelativeTargetDirectoryAfterCut.Text = settings.OriginalFileAfterCutRelativeTargetDirectory;
+            textBoxInputFileTargetDirectory.Text = settings.ActionInputFileTargetDirectory;
+            textBoxInputFileRelativeTargetDirectory.Text = settings.ActionInputFileRelativeTargetDirectory;
             checkBoxCreateMissingDirectories.Checked = settings.CreateMissingDirectories;
 
             SetBackgroundOfFFmpegPath();
@@ -98,9 +97,9 @@ namespace SimpleVideoCutter
             settings.FFmpegPath = textBoxFFmpegPath.Text;
             settings.PreviewSize = (PreviewSize)(Enum.Parse(typeof(PreviewSize), comboBoxPreviewSize.SelectedValue?.ToString() ?? "L"));
             settings.ShowQuickSubDirectoryDialog = checkBoxShowQuickSubDirectoryDialog.Checked;
-            settings.OriginalFileActionAfterCut = groupOriginalFileActions.Controls.OfType<RadioButton>().First(rb => rb.Checked).Tag?.ToString() ?? "keep";
-            settings.OriginalFileAfterCutAbsoluteTargetDirectory = textBoxOriginalFileAbsoluteTargetDirectoryAfterCut.Text;
-            settings.OriginalFileAfterCutRelativeTargetDirectory = textBoxOriginalFileRelativeTargetDirectoryAfterCut.Text;
+            settings.ActionAfterTaskCompletion = groupInputFileActions.Controls.OfType<RadioButton>().First(rb => rb.Checked).Tag?.ToString();
+            settings.ActionInputFileTargetDirectory = textBoxInputFileTargetDirectory.Text;
+            settings.ActionInputFileRelativeTargetDirectory = textBoxInputFileRelativeTargetDirectory.Text;
             settings.CreateMissingDirectories = checkBoxCreateMissingDirectories.Checked;
 
             // TODO: parse VideoFilesExtensions
@@ -177,12 +176,12 @@ namespace SimpleVideoCutter
                 comboBoxOutputDirectory.Text = outputDirectoryPath;
         }
 
-        private void ButtonOriginalFileTargetDirectory_Click(object sender, EventArgs e)
+        private void ButtonInputFileTargetDirectory_Click(object sender, EventArgs e)
         {
             var moveToDirectoryPath = SelectFolder();
 
             if (moveToDirectoryPath != null)
-                textBoxOriginalFileAbsoluteTargetDirectoryAfterCut.Text = moveToDirectoryPath;
+                textBoxInputFileTargetDirectory.Text = moveToDirectoryPath;
         }
 
         private void ButtonOK_Click(object sender, EventArgs e)

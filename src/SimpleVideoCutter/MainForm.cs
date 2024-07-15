@@ -22,6 +22,8 @@ namespace SimpleVideoCutter
         private LibVLC? libVLC;
         private string? lastDirectory = null;
         private string? fileBeingPlayed = null;
+        private string? nextFileInDirectory = null;
+        private string? prevFileInDirectory = null;
         private TaskProcessor taskProcessor = new TaskProcessor();
         private KeyFramesExtractor keyFramesExtractor = new KeyFramesExtractor();
         private int volume = 100;
@@ -327,6 +329,9 @@ namespace SimpleVideoCutter
             if (!File.Exists(path))
                 return;
             fileBeingPlayed = path;
+            nextFileInDirectory = GetNextPrevFileInDirectory(fileBeingPlayed, +1);
+            prevFileInDirectory = GetNextPrevFileInDirectory(fileBeingPlayed, -1);
+
             statusStrip.InvokeIfRequired(() =>
             {
                 toolStripStatusLabelFilePath.Text = path;
@@ -611,12 +616,14 @@ namespace SimpleVideoCutter
             ClearAllSelections();
             UpdateIndexLabel();
             UpdateButtonStates();
+
+            fileBeingPlayed = null;
         }
 
 
         private void ActionAfterTaskCompletion_ActionExecuting(object? sender, ActionExecutingEventArgs e)
         {
-            if (e.Action is IActionRemovesOriginalFile && (e.Action as IActionRemovesOriginalFile)?.OriginalFilePath == this.fileBeingPlayed)
+            if (e.Action is IActionRemovesInputFile && e.Action.Task.InputFilePath == this.fileBeingPlayed)
             {
                 if (this.shouldNotifyIfCurrentFileIsBeingDeletedOrMoved)
                 {
@@ -639,59 +646,26 @@ namespace SimpleVideoCutter
 
         private ActionAfterTaskCompletion? GetActionAfterTaskCompletion(FFmpegTask task)
         {
-            string actionName = VideoCutterSettings.Instance.OriginalFileActionAfterCut;
-            ActionAfterTaskCompletion? action = null;
-
-            if (actionName == "keep" || task.InputFilePath == null)
+            if (VideoCutterSettings.Instance.ActionAfterTaskCompletion == null)
             {
                 return null;
             }
 
-            if (actionName == MoveOriginalFileToDirectory.ActionName)
-            {
-                action = new MoveOriginalFileToDirectory(
-                    task.InputFilePath,
-                    VideoCutterSettings.Instance.OriginalFileAfterCutAbsoluteTargetDirectory
-                );
-            }
+            Type? type = Type.GetType("SimpleVideoCutter.Actions." + VideoCutterSettings.Instance.ActionAfterTaskCompletion);
 
-            if (actionName == MoveOriginalFileToRelativeDirectory.ActionName)
+            if (type != null)
             {
-                action = new MoveOriginalFileToRelativeDirectory(
-                    task.InputFilePath,
-                     VideoCutterSettings.Instance.OriginalFileAfterCutRelativeTargetDirectory
-                );
-            }
-
-            if (actionName == DeleteOriginalFile.ActionName)
-            {
-                DialogResult confirmDeletionResult = DialogResult.No;
-
-                if (VideoCutterSettings.Instance.ShouldAskForDeletionConfirmation)
+                if (Activator.CreateInstance(type, new object[] { task }) is not ActionAfterTaskCompletion action)
                 {
-                    confirmDeletionResult = MessageBox.Show(
-                        "As per the settings, the original file will be deleted. Is this OK? If you choose yes, original files will be deleted without another confirmation.",
-                        "Confirm Deletion",
-                        MessageBoxButtons.YesNo
-                    );
+                    return null;
                 }
-                else confirmDeletionResult = DialogResult.Yes;
 
-                if (confirmDeletionResult == DialogResult.Yes)
-                {
-                    action = new DeleteOriginalFile(task.InputFilePath);
-                    VideoCutterSettings.Instance.ShouldAskForDeletionConfirmation = false;
-                }
+                action.ActionExecuting += this.ActionAfterTaskCompletion_ActionExecuting;
+
+                return action;
             }
 
-            if (action == null)
-            {
-                return null;
-            }
-
-            action.ActionExecuting += ActionAfterTaskCompletion_ActionExecuting;
-
-            return action;
+            return null;
         }
 
         private FFmpegTask? PrepareTask(bool showAddTaskDialog = false)
@@ -1140,26 +1114,19 @@ namespace SimpleVideoCutter
             }
         }
 
+
         private void OpenNextFileInDirectory()
         {
-            if (fileBeingPlayed != null)
+            if (nextFileInDirectory != null && String.Compare(nextFileInDirectory, fileBeingPlayed, true) != 0)
             {
-                var newFile = GetNextPrevFileInDirectory(fileBeingPlayed, +1);
-                if (newFile != null && String.Compare(newFile, fileBeingPlayed, true) != 0)
-                {
-                    OpenFile(newFile);
-                }
+                OpenFile(nextFileInDirectory);
             }
         }
         private void OpenPrevFileInDirectory()
         {
-            if (fileBeingPlayed != null)
+            if (prevFileInDirectory != null && String.Compare(prevFileInDirectory, fileBeingPlayed, true) != 0)
             {
-                var newFile = GetNextPrevFileInDirectory(fileBeingPlayed, -1);
-                if (newFile != null && String.Compare(newFile, fileBeingPlayed, true) != 0)
-                {
-                    OpenFile(newFile);
-                }
+                OpenFile(prevFileInDirectory);
             }
         }
 
