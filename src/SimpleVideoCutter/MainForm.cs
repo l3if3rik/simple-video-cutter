@@ -613,11 +613,11 @@ namespace SimpleVideoCutter
                 videoViewHover.MediaPlayer.Media = null;
             }
 
+            fileBeingPlayed = null;
+
             ClearAllSelections();
             UpdateIndexLabel();
             UpdateButtonStates();
-
-            fileBeingPlayed = null;
         }
 
 
@@ -812,6 +812,11 @@ namespace SimpleVideoCutter
 
             var videoFilesArr = GetVideoFilesInDirectory(currentFilePath);
 
+            if(videoFilesArr.Count() == 1)
+            {
+                return null;
+            }
+
             int index = videoFilesArr
                 .TakeWhile(f => f.ToLowerInvariant() != Path.GetFileName(currentFilePath).ToLowerInvariant())
                 .Count();
@@ -907,8 +912,8 @@ namespace SimpleVideoCutter
 
             toolStripFile.InvokeIfRequired(() =>
             {
-                toolStripButtonFileNext.Enabled = isFileLoaded;
-                toolStripButtonFilePrev.Enabled = isFileLoaded;
+                toolStripButtonFileNext.Enabled = this.nextFileInDirectory != null;
+                toolStripButtonFilePrev.Enabled = this.prevFileInDirectory != null;
             });
 
             toolStripSelection.InvokeIfRequired(() =>
