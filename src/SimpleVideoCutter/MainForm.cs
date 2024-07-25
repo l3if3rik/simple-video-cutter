@@ -615,6 +615,16 @@ namespace SimpleVideoCutter
 
             fileBeingPlayed = null;
 
+            statusStrip.InvokeIfRequired(() =>
+            {
+                toolStripStatusLabelFilePath.Text = "No file loaded";
+            });
+
+            statusStrip.InvokeIfRequired(() =>
+            {
+                toolStripStatusLabelFileDate.Text = "";
+            });
+
             ClearAllSelections();
             UpdateIndexLabel();
             UpdateButtonStates();
