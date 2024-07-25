@@ -867,7 +867,7 @@ namespace SimpleVideoCutter
             else
             {
                 var videoFilesArr = GetVideoFilesInDirectory(fileBeingPlayed);
-                int index = videoFilesArr.IndexOf(Path.GetFileName(fileBeingPlayed).ToLowerInvariant());
+                int index = videoFilesArr.IndexOf(Path.GetFileName(fileBeingPlayed));
                 statusStrip.InvokeIfRequired(() =>
                 {
                     toolStripStatusLabelIndex.Text = string.Format("{0}/{1}", index + 1, videoFilesArr.Count);
